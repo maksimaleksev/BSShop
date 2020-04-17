@@ -15,12 +15,12 @@ class AuthViewController: UIViewController {
     let loginButton = UIButton(title: "Войти в магазин",
                                backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1),
                                titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
-                               font: .systemFont(ofSize: 15, weight: .semibold),
+                               font: .sfProDisplay15,
                                cornerRadius: 24)
-    let orLabel = UILabel(text: "или", font: .systemFont(ofSize: 15), textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    let orLabel = UILabel(text: "или", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
     let signUpButton = UIButton(title: "Зарегистрироваться",
                                 backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
-                                font: .systemFont(ofSize: 15, weight: .semibold), cornerRadius: 24)
+                                font: .sfProDisplay15, cornerRadius: 24)
     
     
     override func viewDidLoad() {
@@ -45,8 +45,6 @@ extension AuthViewController {
             }
         }
         
-        
-        
         let stackView = UIStackView (arrangedSubviews: [loginButton, orLabel, signUpButton])
         stackView.axis = .vertical
         stackView.spacing = 24
@@ -54,10 +52,8 @@ extension AuthViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
         
-        
-        
         NSLayoutConstraint.activate([
-            logoLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 252),
+            logoLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 181),
             logoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 48),
             loginButton.widthAnchor.constraint(equalToConstant: 344),

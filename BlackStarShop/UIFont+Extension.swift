@@ -11,10 +11,10 @@ import UIKit
 extension UIFont {
     
     static var helvetica36: UIFont? {
-        return UIFont.init(name: "Helvetica Bold", size: 36)
+        return UIFont.init(name: "HelveticaNeue-Bold", size: 36)
     }
     static var sfProDisplay15: UIFont? {
-        return UIFont.init(name: "SF Pro Display", size: 15)
+        return UIFont.init(name: "SFProDisplay-Semibold", size: 15)
     }
     
 }
