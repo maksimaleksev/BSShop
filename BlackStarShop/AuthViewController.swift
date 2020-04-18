@@ -38,7 +38,7 @@ extension AuthViewController {
     private func setupConstraints() {
         
         let authVCElements = [logoLabel, loginButton, orLabel, signUpButton]
-        authVCElements.forEach { [weak self] (element) in
+            authVCElements.forEach { [weak self] (element) in
             if let self = self {
                 element.translatesAutoresizingMaskIntoConstraints = false
                 self.view.addSubview(element)
@@ -56,11 +56,12 @@ extension AuthViewController {
             logoLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 181),
             logoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 48),
-            loginButton.widthAnchor.constraint(equalToConstant: 344),
+            loginButton.widthAnchor.constraint(equalToConstant: 345),
             signUpButton.heightAnchor.constraint(equalToConstant: 48),
-            signUpButton.widthAnchor.constraint(equalToConstant: 344),
+            signUpButton.widthAnchor.constraint(equalToConstant: 345),
             stackView.topAnchor.constraint(equalTo: logoLabel.bottomAnchor, constant: 64),
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
         ])
     }
 }

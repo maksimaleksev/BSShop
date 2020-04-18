@@ -21,6 +21,5 @@ extension UIButton {
         self.backgroundColor = backgroundColor
         self.titleLabel?.font = font
         self.layer.cornerRadius = cornerRadius
-        
     }
 }
