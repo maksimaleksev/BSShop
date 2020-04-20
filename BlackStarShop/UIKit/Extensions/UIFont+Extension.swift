@@ -17,4 +17,7 @@ extension UIFont {
         return UIFont.init(name: "SFProDisplay-Semibold", size: 15)
     }
     
+    static var sfProDisplay18: UIFont? {
+        return UIFont.init(name: "SFProDisplay-Semibold", size: 18)
+    }
 }

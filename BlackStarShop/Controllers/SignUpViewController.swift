@@ -20,7 +20,6 @@ class SignUpViewController: UIViewController {
         passwordTextfield.isSecureTextEntry = true
         return passwordTextfield
     }()
-    
     let passwordReplyLabel = UILabel(text: "Повторите пароль:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
     let passwordReplyTextField: FormTextField = {
         let passwordTextfield = FormTextField(font: .sfProDisplay15)

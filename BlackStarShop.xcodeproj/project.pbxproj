@@ -11,6 +11,9 @@
 		7B1F2558244A24C90083C060 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1F2557244A24C90083C060 /* FormTextField.swift */; };
 		7B1F255D244A32660083C060 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1F255C244A32660083C060 /* UIStackView+Extension.swift */; };
 		7B1F255F244B772F0083C060 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1F255E244B772F0083C060 /* SignUpViewController.swift */; };
+		7B3DB012244DD283000047EF /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3DB011244DD283000047EF /* SetupProfileViewController.swift */; };
+		7B3DB014244DE0DB000047EF /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3DB013244DE0DB000047EF /* AddPhotoView.swift */; };
+		7B3DB016244DE6BA000047EF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3DB015244DE6BA000047EF /* UIColor+Extension.swift */; };
 		7B6E43CA2447556200153912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E43C92447556200153912 /* AppDelegate.swift */; };
 		7B6E43CC2447556200153912 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E43CB2447556200153912 /* SceneDelegate.swift */; };
 		7B6E43CE2447556200153912 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E43CD2447556200153912 /* AuthViewController.swift */; };
@@ -26,6 +29,9 @@
 		7B1F2557244A24C90083C060 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		7B1F255C244A32660083C060 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		7B1F255E244B772F0083C060 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7B3DB011244DD283000047EF /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
+		7B3DB013244DE0DB000047EF /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
+		7B3DB015244DE6BA000047EF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7B6E43C62447556200153912 /* BlackStarShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackStarShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B6E43C92447556200153912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B6E43CB2447556200153912 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,10 +55,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B08E651244E0AC100387FDC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7B6E43CD2447556200153912 /* AuthViewController.swift */,
+				7B1F255E244B772F0083C060 /* SignUpViewController.swift */,
+				7B3DB011244DD283000047EF /* SetupProfileViewController.swift */,
+				7B1F2555244A20EA0083C060 /* LoginViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		7B1F255A244A2BA60083C060 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
 				7B1F2557244A24C90083C060 /* FormTextField.swift */,
+				7B3DB013244DE0DB000047EF /* AddPhotoView.swift */,
 				7B1F255B244A2BB60083C060 /* Extensions */,
 			);
 			path = UIKit;
@@ -65,6 +83,7 @@
 				7B6E43DD244759BC00153912 /* UILabel+Extension.swift */,
 				7B6E43DF24475A8600153912 /* UIFont+Extension.swift */,
 				7B1F255C244A32660083C060 /* UIStackView+Extension.swift */,
+				7B3DB015244DE6BA000047EF /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -90,9 +109,7 @@
 			children = (
 				7B6E43C92447556200153912 /* AppDelegate.swift */,
 				7B6E43CB2447556200153912 /* SceneDelegate.swift */,
-				7B6E43CD2447556200153912 /* AuthViewController.swift */,
-				7B1F255E244B772F0083C060 /* SignUpViewController.swift */,
-				7B1F2555244A20EA0083C060 /* LoginViewController.swift */,
+				7B08E651244E0AC100387FDC /* Controllers */,
 				7B1F255A244A2BA60083C060 /* UIKit */,
 				7B6E43D22447556300153912 /* Assets.xcassets */,
 				7B6E43D42447556300153912 /* LaunchScreen.storyboard */,
@@ -177,8 +194,11 @@
 				7B1F2558244A24C90083C060 /* FormTextField.swift in Sources */,
 				7B1F255F244B772F0083C060 /* SignUpViewController.swift in Sources */,
 				7B6E43CA2447556200153912 /* AppDelegate.swift in Sources */,
+				7B3DB012244DD283000047EF /* SetupProfileViewController.swift in Sources */,
+				7B3DB014244DE0DB000047EF /* AddPhotoView.swift in Sources */,
 				7B1F255D244A32660083C060 /* UIStackView+Extension.swift in Sources */,
 				7B6E43E024475A8600153912 /* UIFont+Extension.swift in Sources */,
+				7B3DB016244DE6BA000047EF /* UIColor+Extension.swift in Sources */,
 				7B6E43CC2447556200153912 /* SceneDelegate.swift in Sources */,
 				7B6E43E224475D1400153912 /* UIButton+Extension.swift in Sources */,
 			);
