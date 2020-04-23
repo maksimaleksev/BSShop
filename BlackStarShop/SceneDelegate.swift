@@ -23,8 +23,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window?.rootViewController = AuthViewController()
 //        window?.rootViewController = LoginViewController()
 //        window?.rootViewController = SetupProfileViewController()
-        let navigationController = UINavigationController.init(rootViewController: CategoryViewController())
-        window = UIWindow.init(frame: UIScreen.main.bounds)
+        let navigationController = UINavigationController()
+        let categoryViewController = CategoryViewController()
+        navigationController.viewControllers = [categoryViewController]
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }
