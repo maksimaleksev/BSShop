@@ -25,6 +25,7 @@
 		7B7D0F2E2450597000AD3363 /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D0F292450597000AD3363 /* SetupProfileViewController.swift */; };
 		7B7D0F31245059AB00AD3363 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D0F30245059AA00AD3363 /* Category.swift */; };
 		7B7D0F33245059CB00AD3363 /* CategoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7D0F32245059CB00AD3363 /* CategoryCellTableViewCell.swift */; };
+		7BF0664C2451CC750059A1D1 /* SubcategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0664B2451CC750059A1D1 /* SubcategoryViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		7B7D0F292450597000AD3363 /* SetupProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		7B7D0F30245059AA00AD3363 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		7B7D0F32245059CB00AD3363 /* CategoryCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCellTableViewCell.swift; sourceTree = "<group>"; };
+		7BF0664B2451CC750059A1D1 /* SubcategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcategoryViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +120,9 @@
 		7B7D0F232450597000AD3363 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7B7D0F242450597000AD3363 /* CategoryViewController.swift */,
 				7B7D0F252450597000AD3363 /* Auth&SignIn */,
+				7B7D0F242450597000AD3363 /* CategoryViewController.swift */,
+				7BF0664B2451CC750059A1D1 /* SubcategoryViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B7D0F2B2450597000AD3363 /* SignUpViewController.swift in Sources */,
+				7BF0664C2451CC750059A1D1 /* SubcategoryViewController.swift in Sources */,
 				7B7D0F2A2450597000AD3363 /* CategoryViewController.swift in Sources */,
 				7B6E43DE244759BC00153912 /* UILabel+Extension.swift in Sources */,
 				7B1F2558244A24C90083C060 /* FormTextField.swift in Sources */,
