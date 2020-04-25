@@ -26,7 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = UINavigationController()
         let categoryVC = CategoryViewController()
         let subCategoryVC = SubcategoryViewController()
-        navigationController.viewControllers = [categoryVC, subCategoryVC]
+        let productListVC = ProductListViewController()
+        navigationController.viewControllers = [categoryVC, subCategoryVC, productListVC]
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
     }

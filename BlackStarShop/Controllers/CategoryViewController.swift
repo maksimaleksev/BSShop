@@ -23,6 +23,7 @@ class CategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Категории"
         setUpTableView()
         setupConstraints()
     }
@@ -31,7 +32,6 @@ class CategoryViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-        self.navigationItem.title = "Категории"
         self.tableView.register(CategoryCellTableViewCell.self, forCellReuseIdentifier: CategoryCellTableViewCell.reuseId)
     }
     

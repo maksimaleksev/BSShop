@@ -13,4 +13,8 @@ extension UIColor {
     static func customGrey() -> UIColor{
         return #colorLiteral(red: 0.5921568627, green: 0.5921568627, blue: 0.5921568627, alpha: 1)
     }
+    
+    static func customPink() -> UIColor {
+        return #colorLiteral(red: 0.9647058824, green: 0.2352941176, blue: 0.4078431373, alpha: 1)
+    }
 }

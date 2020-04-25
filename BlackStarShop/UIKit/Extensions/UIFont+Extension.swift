@@ -20,4 +20,17 @@ extension UIFont {
     static var sfProDisplay18: UIFont? {
         return UIFont.init(name: "SFProDisplay-Semibold", size: 18)
     }
+    
+    static func sfProDisplay16() -> UIFont? {
+        return UIFont.init(name: "SFProDisplay-Medium", size: 16)
+    }
+    
+    static func sfProDisplay11() -> UIFont? {
+        return UIFont.init(name: "SFProDisplay-Medium", size: 11)
+    }
+    
+    static func robotoBold8() -> UIFont? {
+        return UIFont.init(name: "Roboto-Bold", size: 8)
+    }
 }
+

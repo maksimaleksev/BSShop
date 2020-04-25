@@ -54,5 +54,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SFProDisplay-Medium.ttf</string>
+		<string>SFProDisplay-Semibold.ttf</string>
+		<string>Roboto-Bold.ttf</string>
+	</array>
 </dict>
 </plist>

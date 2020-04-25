@@ -24,6 +24,7 @@ class SubcategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Женщинам"
         setUpTableView()
         setupConstraints()
     }
@@ -32,7 +33,6 @@ class SubcategoryViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
-        self.navigationItem.title = "Женщинам"
         self.tableView.register(CategoryCellTableViewCell.self, forCellReuseIdentifier: CategoryCellTableViewCell.reuseId)
     }
     
