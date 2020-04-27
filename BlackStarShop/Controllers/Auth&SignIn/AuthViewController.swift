@@ -11,7 +11,7 @@ import SwiftUI
 
 class AuthViewController: UIViewController {
     
-    let logoLabel = UILabel(text: "Black Star Wear", font: .helvetica36)
+    let logoLabel = UILabel(text: "Black Star Wear", font: .akzidenzGroteskPro40)
     let loginButton = UIButton(title: "Войти в магазин",
                                backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1),
                                titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),

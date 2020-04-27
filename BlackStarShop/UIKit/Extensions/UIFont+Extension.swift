@@ -13,6 +13,10 @@ extension UIFont {
     static var helvetica36: UIFont? {
         return UIFont.init(name: "HelveticaNeue-Bold", size: 36)
     }
+    
+    static var akzidenzGroteskPro40: UIFont? {
+        return UIFont.init(name: "AkzidenzGroteskPro-BoldCn", size: 40)
+    }
     static var sfProDisplay15: UIFont? {
         return UIFont.init(name: "SFProDisplay-Semibold", size: 15)
     }

@@ -11,7 +11,7 @@ import SwiftUI
 
 class SignUpViewController: UIViewController {
     
-    let logoLabel = UILabel(text: "Black Star Wear", font: .helvetica36)
+    let logoLabel = UILabel(text: "Black Star Wear", font: .akzidenzGroteskPro40)
     let emailLabel = UILabel(text: "E-mail:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
     let emailTextField = FormTextField(font: .sfProDisplay15)
     let passwordLabel = UILabel(text: "Пароль:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
