@@ -14,6 +14,8 @@
 		7B454B292451EDD80054E1CA /* SubcategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B454B282451EDD80054E1CA /* SubcategoryViewController.swift */; };
 		7B6417152456EF2100B39570 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6417142456EF2100B39570 /* CartViewController.swift */; };
 		7B6417172456FA0700B39570 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6417162456FA0700B39570 /* CartCell.swift */; };
+		7B64171924584B7D00B39570 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B64171824584B7D00B39570 /* ProfileViewController.swift */; };
+		7B64171B24585B6B00B39570 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B64171A24585B6B00B39570 /* MainTabBarController.swift */; };
 		7B6E43CA2447556200153912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E43C92447556200153912 /* AppDelegate.swift */; };
 		7B6E43CC2447556200153912 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E43CB2447556200153912 /* SceneDelegate.swift */; };
 		7B6E43D32447556300153912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B6E43D22447556300153912 /* Assets.xcassets */; };
@@ -45,6 +47,8 @@
 		7B454B282451EDD80054E1CA /* SubcategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubcategoryViewController.swift; path = BlackStarShop/Controllers/SubcategoryViewController.swift; sourceTree = SOURCE_ROOT; };
 		7B6417142456EF2100B39570 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		7B6417162456FA0700B39570 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
+		7B64171824584B7D00B39570 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		7B64171A24585B6B00B39570 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		7B6E43C62447556200153912 /* BlackStarShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackStarShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B6E43C92447556200153912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B6E43CB2447556200153912 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 				7B454B282451EDD80054E1CA /* SubcategoryViewController.swift */,
 				7BF0664D24530A790059A1D1 /* ProductListViewController.swift */,
 				7B6417142456EF2100B39570 /* CartViewController.swift */,
+				7B64171A24585B6B00B39570 /* MainTabBarController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -155,6 +160,7 @@
 				7BB882912450A5AC0085AB39 /* AuthViewController.swift */,
 				7BB882922450A5AC0085AB39 /* LoginViewController.swift */,
 				7BB882932450A5AC0085AB39 /* SetupProfileViewController.swift */,
+				7B64171824584B7D00B39570 /* ProfileViewController.swift */,
 			);
 			path = "Auth&SignIn";
 			sourceTree = "<group>";
@@ -266,6 +272,7 @@
 			files = (
 				7BF0665024530AFC0059A1D1 /* Product.swift in Sources */,
 				7BB882952450A5AC0085AB39 /* SignUpViewController.swift in Sources */,
+				7B64171B24585B6B00B39570 /* MainTabBarController.swift in Sources */,
 				7BD40456245356300028E16F /* ProductCollectionViewCell.swift in Sources */,
 				7B454B292451EDD80054E1CA /* SubcategoryViewController.swift in Sources */,
 				7BB882942450A5AC0085AB39 /* CategoryViewController.swift in Sources */,
@@ -279,6 +286,7 @@
 				7BF0664E24530A790059A1D1 /* ProductListViewController.swift in Sources */,
 				7B6E43E024475A8600153912 /* UIFont+Extension.swift in Sources */,
 				7B3DB016244DE6BA000047EF /* UIColor+Extension.swift in Sources */,
+				7B64171924584B7D00B39570 /* ProfileViewController.swift in Sources */,
 				7B6417172456FA0700B39570 /* CartCell.swift in Sources */,
 				7BB8829D2450A5D60085AB39 /* CategoryCellTableViewCell.swift in Sources */,
 				7B6417152456EF2100B39570 /* CartViewController.swift in Sources */,

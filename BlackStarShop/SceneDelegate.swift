@@ -23,14 +23,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window?.rootViewController = AuthViewController()
 //        window?.rootViewController = LoginViewController()
 //        window?.rootViewController = SetupProfileViewController()
-        let navigationController = UINavigationController()
+//        let navigationController = UINavigationController()
 //        let categoryVC = CategoryViewController()
 //        let subCategoryVC = SubcategoryViewController()
 //        let productListVC = ProductListViewController()
-        let cartVC = CartViewController()
+//        let cartVC = CartViewController()
 //        navigationController.viewControllers = [categoryVC, subCategoryVC, productListVC]
-        navigationController.viewControllers = [cartVC]
-        window?.rootViewController = navigationController
+//        let profileVC = ProfileViewController()
+//        navigationController.viewControllers = [profileVC]
+//        window?.rootViewController = navigationController
+        
+        let mainTabBarController = MainTabBarController()
+        window?.rootViewController = mainTabBarController
         window?.makeKeyAndVisible()
     }
 
