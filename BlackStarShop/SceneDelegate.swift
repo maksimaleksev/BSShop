@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        window?.rootViewController = AuthViewController()
 //        window?.rootViewController = LoginViewController()
 //        window?.rootViewController = SetupProfileViewController()
-//        let navigationController = UINavigationController()
+        let navigationController = UINavigationController()
 //        let categoryVC = CategoryViewController()
 //        let subCategoryVC = SubcategoryViewController()
 //        let productListVC = ProductListViewController()
@@ -31,10 +31,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        navigationController.viewControllers = [categoryVC, subCategoryVC, productListVC]
 //        let profileVC = ProfileViewController()
 //        navigationController.viewControllers = [profileVC]
-//        window?.rootViewController = navigationController
-        
-        let mainTabBarController = MainTabBarController()
-        window?.rootViewController = mainTabBarController
+
+        let productVC = ProductViewController()
+                navigationController.viewControllers = [productVC]
+                window?.rootViewController = navigationController
+//        let mainTabBarController = MainTabBarController()
+//        window?.rootViewController = mainTabBarController
         window?.makeKeyAndVisible()
     }
 

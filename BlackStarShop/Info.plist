@@ -56,10 +56,12 @@
 	</array>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Roboto-Regular.ttf</string>
 		<string>SFProDisplay-Medium.ttf</string>
 		<string>SFProDisplay-Semibold.ttf</string>
 		<string>Roboto-Bold.ttf</string>
 		<string>AkzidenzGroteskPro-BoldCn.ttf</string>
+		<string>AkzidenzGroteskPro-Cn.ttf</string>
 	</array>
 </dict>
 </plist>

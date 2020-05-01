@@ -57,10 +57,13 @@ extension ProfileViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
         
+        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        let topPadding = window?.safeAreaInsets.top
+        
         NSLayoutConstraint.activate([
             profileImageView.heightAnchor.constraint(equalToConstant: 100),
             profileImageView.widthAnchor.constraint(equalToConstant: 100),
-            profileImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 104),
+            profileImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: (topPadding ?? 0) + 44 + 24),
             profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 32),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 32)

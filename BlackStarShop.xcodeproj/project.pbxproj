@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		7B1F2558244A24C90083C060 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1F2557244A24C90083C060 /* FormTextField.swift */; };
 		7B1F255D244A32660083C060 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1F255C244A32660083C060 /* UIStackView+Extension.swift */; };
+		7B3068DE245C5353001522F9 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3068DD245C5353001522F9 /* ProductViewController.swift */; };
+		7B3068E0245C6535001522F9 /* AkzidenzGroteskPro-Cn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B3068DF245C64B2001522F9 /* AkzidenzGroteskPro-Cn.ttf */; };
+		7B3068E2245C6D52001522F9 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B3068E1245C6D45001522F9 /* Roboto-Regular.ttf */; };
+		7B3068E4245C7674001522F9 /* UIBarButtonIcon+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3068E3245C7674001522F9 /* UIBarButtonIcon+Extension.swift */; };
+		7B3068E6245C76D8001522F9 /* CAShapeLayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3068E5245C76D8001522F9 /* CAShapeLayer+Extension.swift */; };
 		7B3DB014244DE0DB000047EF /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3DB013244DE0DB000047EF /* AddPhotoView.swift */; };
 		7B3DB016244DE6BA000047EF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3DB015244DE6BA000047EF /* UIColor+Extension.swift */; };
 		7B454B292451EDD80054E1CA /* SubcategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B454B282451EDD80054E1CA /* SubcategoryViewController.swift */; };
@@ -42,6 +47,11 @@
 /* Begin PBXFileReference section */
 		7B1F2557244A24C90083C060 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		7B1F255C244A32660083C060 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		7B3068DD245C5353001522F9 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		7B3068DF245C64B2001522F9 /* AkzidenzGroteskPro-Cn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AkzidenzGroteskPro-Cn.ttf"; sourceTree = "<group>"; };
+		7B3068E1245C6D45001522F9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		7B3068E3245C7674001522F9 /* UIBarButtonIcon+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarButtonIcon+Extension.swift"; sourceTree = "<group>"; };
+		7B3068E5245C76D8001522F9 /* CAShapeLayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAShapeLayer+Extension.swift"; sourceTree = "<group>"; };
 		7B3DB013244DE0DB000047EF /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		7B3DB015244DE6BA000047EF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7B454B282451EDD80054E1CA /* SubcategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubcategoryViewController.swift; path = BlackStarShop/Controllers/SubcategoryViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -89,11 +99,12 @@
 			isa = PBXGroup;
 			children = (
 				7BB8828F2450A5AC0085AB39 /* Auth&SignIn */,
+				7B64171A24585B6B00B39570 /* MainTabBarController.swift */,
 				7BB8828E2450A5AC0085AB39 /* CategoryViewController.swift */,
 				7B454B282451EDD80054E1CA /* SubcategoryViewController.swift */,
 				7BF0664D24530A790059A1D1 /* ProductListViewController.swift */,
 				7B6417142456EF2100B39570 /* CartViewController.swift */,
-				7B64171A24585B6B00B39570 /* MainTabBarController.swift */,
+				7B3068DD245C5353001522F9 /* ProductViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -113,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				7B6E43E124475D1400153912 /* UIButton+Extension.swift */,
+				7B3068E3245C7674001522F9 /* UIBarButtonIcon+Extension.swift */,
+				7B3068E5245C76D8001522F9 /* CAShapeLayer+Extension.swift */,
 				7B6E43DD244759BC00153912 /* UILabel+Extension.swift */,
 				7B6E43DF24475A8600153912 /* UIFont+Extension.swift */,
 				7B1F255C244A32660083C060 /* UIStackView+Extension.swift */,
@@ -188,7 +201,9 @@
 			isa = PBXGroup;
 			children = (
 				7BB4EF00245750DD00698FE2 /* AkzidenzGroteskPro-BoldCn.ttf */,
+				7B3068DF245C64B2001522F9 /* AkzidenzGroteskPro-Cn.ttf */,
 				7BD4045924544F720028E16F /* Roboto-Bold.ttf */,
+				7B3068E1245C6D45001522F9 /* Roboto-Regular.ttf */,
 				7BD4045B245455250028E16F /* SFProDisplay-Medium.ttf */,
 				7BD4045C245455250028E16F /* SFProDisplay-Semibold.ttf */,
 			);
@@ -256,10 +271,12 @@
 			files = (
 				7BB4EF012457510800698FE2 /* AkzidenzGroteskPro-BoldCn.ttf in Resources */,
 				7B6E43D62447556300153912 /* LaunchScreen.storyboard in Resources */,
+				7B3068E2245C6D52001522F9 /* Roboto-Regular.ttf in Resources */,
 				7BD4045D245455420028E16F /* SFProDisplay-Semibold.ttf in Resources */,
 				7B6E43D32447556300153912 /* Assets.xcassets in Resources */,
 				7BD4045A245452580028E16F /* Roboto-Bold.ttf in Resources */,
 				7BD4045E245455460028E16F /* SFProDisplay-Medium.ttf in Resources */,
+				7B3068E0245C6535001522F9 /* AkzidenzGroteskPro-Cn.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,13 +303,16 @@
 				7BF0664E24530A790059A1D1 /* ProductListViewController.swift in Sources */,
 				7B6E43E024475A8600153912 /* UIFont+Extension.swift in Sources */,
 				7B3DB016244DE6BA000047EF /* UIColor+Extension.swift in Sources */,
+				7B3068E4245C7674001522F9 /* UIBarButtonIcon+Extension.swift in Sources */,
 				7B64171924584B7D00B39570 /* ProfileViewController.swift in Sources */,
 				7B6417172456FA0700B39570 /* CartCell.swift in Sources */,
 				7BB8829D2450A5D60085AB39 /* CategoryCellTableViewCell.swift in Sources */,
+				7B3068E6245C76D8001522F9 /* CAShapeLayer+Extension.swift in Sources */,
 				7B6417152456EF2100B39570 /* CartViewController.swift in Sources */,
 				7BB8829B2450A5C60085AB39 /* Category.swift in Sources */,
 				7B6E43CC2447556200153912 /* SceneDelegate.swift in Sources */,
 				7BB882972450A5AC0085AB39 /* LoginViewController.swift in Sources */,
+				7B3068DE245C5353001522F9 /* ProductViewController.swift in Sources */,
 				7B6E43E224475D1400153912 /* UIButton+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
