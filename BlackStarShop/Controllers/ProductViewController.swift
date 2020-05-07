@@ -11,6 +11,10 @@ import SwiftUI
 
 class ProductViewController: UIViewController {
     
+    private var images = ["0", "1", "2" ]
+    private var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
+    private let sizes = ["XL", "L", "M", "S"]
+    
     let scrollView: UIScrollView = {
          let scrollView = UIScrollView()
           scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -71,9 +75,9 @@ class ProductViewController: UIViewController {
         return aboutProductLabel
     }()
     
-      private var images = ["0", "1", "2" ]
-      private var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-
+    private let transition = PanelTransition()
+    
+      
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -118,7 +122,13 @@ class ProductViewController: UIViewController {
     }
 
     @objc func addToCartButtonPressed() {
-        navigationItem.rightBarButtonItem?.setBadge(text: "24")
+        
+        let child = SizesViewController(sizes: sizes)
+        child.transitioningDelegate = transition
+        child.modalPresentationStyle = .custom
+
+        present(child, animated: true)
+//        navigationItem.rightBarButtonItem?.setBadge(text: "24")
     }
 }
 

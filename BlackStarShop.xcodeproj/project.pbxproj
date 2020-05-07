@@ -40,6 +40,17 @@
 		7BD4045A245452580028E16F /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BD4045924544F720028E16F /* Roboto-Bold.ttf */; };
 		7BD4045D245455420028E16F /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BD4045C245455250028E16F /* SFProDisplay-Semibold.ttf */; };
 		7BD4045E245455460028E16F /* SFProDisplay-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BD4045B245455250028E16F /* SFProDisplay-Medium.ttf */; };
+		7BDF49E924642CF70035C141 /* CGPoint+Velocity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF49E824642CF70035C141 /* CGPoint+Velocity.swift */; };
+		7BDF49ED24642D180035C141 /* PresentAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF49EB24642D180035C141 /* PresentAnimation.swift */; };
+		7BDF49EE24642D180035C141 /* DismissAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF49EC24642D180035C141 /* DismissAnimation.swift */; };
+		7BDF49F124642D440035C141 /* InstantPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF49EF24642D440035C141 /* InstantPanGestureRecognizer.swift */; };
+		7BDF49F224642D440035C141 /* PanelTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF49F024642D440035C141 /* PanelTransition.swift */; };
+		7BDF49F624642D680035C141 /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF49F424642D680035C141 /* PresentationController.swift */; };
+		7BDF49F724642D680035C141 /* DimmPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF49F524642D680035C141 /* DimmPresentationController.swift */; };
+		7BDF49F924642D8D0035C141 /* SizesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF49F824642D8D0035C141 /* SizesCell.swift */; };
+		7BDF49FD24642DA00035C141 /* TransitionDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF49FA24642DA00035C141 /* TransitionDriver.swift */; };
+		7BDF49FE24642DA00035C141 /* SizesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF49FB24642DA00035C141 /* SizesViewController.swift */; };
+		7BDF49FF24642DA00035C141 /* TransitionDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF49FC24642DA00035C141 /* TransitionDirection.swift */; };
 		7BF0664E24530A790059A1D1 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0664D24530A790059A1D1 /* ProductListViewController.swift */; };
 		7BF0665024530AFC0059A1D1 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0664F24530AFC0059A1D1 /* Product.swift */; };
 /* End PBXBuildFile section */
@@ -80,6 +91,17 @@
 		7BD4045924544F720028E16F /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		7BD4045B245455250028E16F /* SFProDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.ttf"; sourceTree = "<group>"; };
 		7BD4045C245455250028E16F /* SFProDisplay-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Semibold.ttf"; sourceTree = "<group>"; };
+		7BDF49E824642CF70035C141 /* CGPoint+Velocity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Velocity.swift"; sourceTree = "<group>"; };
+		7BDF49EB24642D180035C141 /* PresentAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentAnimation.swift; sourceTree = "<group>"; };
+		7BDF49EC24642D180035C141 /* DismissAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissAnimation.swift; sourceTree = "<group>"; };
+		7BDF49EF24642D440035C141 /* InstantPanGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstantPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		7BDF49F024642D440035C141 /* PanelTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanelTransition.swift; sourceTree = "<group>"; };
+		7BDF49F424642D680035C141 /* PresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
+		7BDF49F524642D680035C141 /* DimmPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmPresentationController.swift; sourceTree = "<group>"; };
+		7BDF49F824642D8D0035C141 /* SizesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizesCell.swift; sourceTree = "<group>"; };
+		7BDF49FA24642DA00035C141 /* TransitionDriver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionDriver.swift; sourceTree = "<group>"; };
+		7BDF49FB24642DA00035C141 /* SizesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SizesViewController.swift; sourceTree = "<group>"; };
+		7BDF49FC24642DA00035C141 /* TransitionDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionDirection.swift; sourceTree = "<group>"; };
 		7BF0664D24530A790059A1D1 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
 		7BF0664F24530AFC0059A1D1 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +127,7 @@
 				7BF0664D24530A790059A1D1 /* ProductListViewController.swift */,
 				7B6417142456EF2100B39570 /* CartViewController.swift */,
 				7B3068DD245C5353001522F9 /* ProductViewController.swift */,
+				7BDF49E724642C480035C141 /* TransitionController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -125,6 +148,7 @@
 			children = (
 				7B6E43E124475D1400153912 /* UIButton+Extension.swift */,
 				7B3068E3245C7674001522F9 /* UIBarButtonIcon+Extension.swift */,
+				7BDF49E824642CF70035C141 /* CGPoint+Velocity.swift */,
 				7B3068E5245C76D8001522F9 /* CAShapeLayer+Extension.swift */,
 				7B6E43DD244759BC00153912 /* UILabel+Extension.swift */,
 				7B6E43DF24475A8600153912 /* UIFont+Extension.swift */,
@@ -193,6 +217,7 @@
 				7BB8829C2450A5D60085AB39 /* CategoryCellTableViewCell.swift */,
 				7BD40455245356300028E16F /* ProductCollectionViewCell.swift */,
 				7B6417162456FA0700B39570 /* CartCell.swift */,
+				7BDF49F824642D8D0035C141 /* SizesCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -210,6 +235,38 @@
 			name = Fonts;
 			path = BlackStarShop/Fonts;
 			sourceTree = SOURCE_ROOT;
+		};
+		7BDF49E724642C480035C141 /* TransitionController */ = {
+			isa = PBXGroup;
+			children = (
+				7BDF49F324642D680035C141 /* PresentationController */,
+				7BDF49EA24642D180035C141 /* Animation */,
+				7BDF49FB24642DA00035C141 /* SizesViewController.swift */,
+				7BDF49EF24642D440035C141 /* InstantPanGestureRecognizer.swift */,
+				7BDF49FC24642DA00035C141 /* TransitionDirection.swift */,
+				7BDF49FA24642DA00035C141 /* TransitionDriver.swift */,
+				7BDF49F024642D440035C141 /* PanelTransition.swift */,
+			);
+			path = TransitionController;
+			sourceTree = "<group>";
+		};
+		7BDF49EA24642D180035C141 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				7BDF49EB24642D180035C141 /* PresentAnimation.swift */,
+				7BDF49EC24642D180035C141 /* DismissAnimation.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		7BDF49F324642D680035C141 /* PresentationController */ = {
+			isa = PBXGroup;
+			children = (
+				7BDF49F424642D680035C141 /* PresentationController.swift */,
+				7BDF49F524642D680035C141 /* DimmPresentationController.swift */,
+			);
+			path = PresentationController;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -287,9 +344,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BDF49FD24642DA00035C141 /* TransitionDriver.swift in Sources */,
 				7BF0665024530AFC0059A1D1 /* Product.swift in Sources */,
 				7BB882952450A5AC0085AB39 /* SignUpViewController.swift in Sources */,
 				7B64171B24585B6B00B39570 /* MainTabBarController.swift in Sources */,
+				7BDF49E924642CF70035C141 /* CGPoint+Velocity.swift in Sources */,
 				7BD40456245356300028E16F /* ProductCollectionViewCell.swift in Sources */,
 				7B454B292451EDD80054E1CA /* SubcategoryViewController.swift in Sources */,
 				7BB882942450A5AC0085AB39 /* CategoryViewController.swift in Sources */,
@@ -297,20 +356,29 @@
 				7B1F2558244A24C90083C060 /* FormTextField.swift in Sources */,
 				7BB882982450A5AC0085AB39 /* SetupProfileViewController.swift in Sources */,
 				7BB882962450A5AC0085AB39 /* AuthViewController.swift in Sources */,
+				7BDF49F224642D440035C141 /* PanelTransition.swift in Sources */,
+				7BDF49EE24642D180035C141 /* DismissAnimation.swift in Sources */,
 				7B6E43CA2447556200153912 /* AppDelegate.swift in Sources */,
+				7BDF49F624642D680035C141 /* PresentationController.swift in Sources */,
 				7B3DB014244DE0DB000047EF /* AddPhotoView.swift in Sources */,
 				7B1F255D244A32660083C060 /* UIStackView+Extension.swift in Sources */,
 				7BF0664E24530A790059A1D1 /* ProductListViewController.swift in Sources */,
 				7B6E43E024475A8600153912 /* UIFont+Extension.swift in Sources */,
+				7BDF49F124642D440035C141 /* InstantPanGestureRecognizer.swift in Sources */,
+				7BDF49ED24642D180035C141 /* PresentAnimation.swift in Sources */,
 				7B3DB016244DE6BA000047EF /* UIColor+Extension.swift in Sources */,
 				7B3068E4245C7674001522F9 /* UIBarButtonIcon+Extension.swift in Sources */,
+				7BDF49FF24642DA00035C141 /* TransitionDirection.swift in Sources */,
 				7B64171924584B7D00B39570 /* ProfileViewController.swift in Sources */,
+				7BDF49F724642D680035C141 /* DimmPresentationController.swift in Sources */,
 				7B6417172456FA0700B39570 /* CartCell.swift in Sources */,
 				7BB8829D2450A5D60085AB39 /* CategoryCellTableViewCell.swift in Sources */,
 				7B3068E6245C76D8001522F9 /* CAShapeLayer+Extension.swift in Sources */,
 				7B6417152456EF2100B39570 /* CartViewController.swift in Sources */,
 				7BB8829B2450A5C60085AB39 /* Category.swift in Sources */,
+				7BDF49F924642D8D0035C141 /* SizesCell.swift in Sources */,
 				7B6E43CC2447556200153912 /* SceneDelegate.swift in Sources */,
+				7BDF49FE24642DA00035C141 /* SizesViewController.swift in Sources */,
 				7BB882972450A5AC0085AB39 /* LoginViewController.swift in Sources */,
 				7B3068DE245C5353001522F9 /* ProductViewController.swift in Sources */,
 				7B6E43E224475D1400153912 /* UIButton+Extension.swift in Sources */,
