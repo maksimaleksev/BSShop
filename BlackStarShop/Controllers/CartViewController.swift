@@ -65,6 +65,16 @@ class CartViewController: UIViewController {
         return tableView
     }()
     
+    
+    private let backgroundForSizeView: UIView = {
+        let backgroundForSizeView = UIView()
+        backgroundForSizeView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        backgroundForSizeView.layer.opacity = 0
+        return backgroundForSizeView
+    }()
+    
+    private let delView = DelView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -83,9 +93,33 @@ class CartViewController: UIViewController {
     
     private func setNavigationBarItems() {
         navigationItem.title = "Корзина"
-        let leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Close"), style: .plain, target: nil, action: nil)
+        let leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Close"), style: .done, target: self, action: #selector(delAll))
         leftBarButtonItem.tintColor = .customGrey()
         navigationItem.leftBarButtonItem = leftBarButtonItem
+    }
+    
+    func goDeleteAlert() {
+        self.view.addSubview(backgroundForSizeView)
+        
+        self.view.addSubview(delView)
+        delView.layer.opacity = 1
+        backgroundForSizeView.frame.size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        delView.frame.size = CGSize(width: UIScreen.main.bounds.width - 32, height: 240)
+        delView.frame.origin = CGPoint(x: 16, y: UIScreen.main.bounds.height)
+        delView.layer.cornerRadius = delView.frame.width / 16
+        delView.backgroundColor = .white
+        UIView.animate(withDuration: 0.3, animations: {
+            self.delView.frame.origin = CGPoint(x: 16, y: UIScreen.main.bounds.height / 4)
+            self.backgroundForSizeView.layer.opacity = 1
+        }, completion: {
+            complete in
+            self.delView.frame.origin = CGPoint(x: 16, y: UIScreen.main.bounds.height / 4)
+            self.backgroundForSizeView.layer.opacity = 1
+        })
+    }
+    
+    @objc func delAll() {
+        goDeleteAlert()
     }
     
 }

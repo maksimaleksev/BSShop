@@ -32,11 +32,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let profileVC = ProfileViewController()
 //        navigationController.viewControllers = [profileVC]
 
-        let productVC = ProductViewController()
-                navigationController.viewControllers = [productVC]
-                window?.rootViewController = navigationController
-//        let mainTabBarController = MainTabBarController()
-//        window?.rootViewController = mainTabBarController
+//        let productVC = ProductViewController()
+//                navigationController.viewControllers = [productVC]
+//                window?.rootViewController = navigationController
+        let mainTabBarController = MainTabBarController()
+        window?.rootViewController = mainTabBarController
         window?.makeKeyAndVisible()
     }
 
