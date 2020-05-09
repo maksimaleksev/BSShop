@@ -8,6 +8,8 @@
 
 import UIKit
 import SwiftUI
+import FirebaseAuth
+import SDWebImage
 
 class SetupProfileViewController: UIViewController {
     
@@ -25,14 +27,59 @@ class SetupProfileViewController: UIViewController {
                                        backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
                                        font: .sfProDisplay15, cornerRadius: 24)
     
+    private var currentUser: User
+    
+    init(currentUser: User) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         createProfileLabel.textAlignment = .center
         view.backgroundColor = .white
         setupConstraints()
+        createProfileButton.addTarget(self, action: #selector(createProfileButtonTapped), for: .touchUpInside)
+        profileImageView.plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
         
     }
+    
+    @objc private func createProfileButtonTapped() {
+        FirestoreService.shared.saveProfileWith(id: currentUser.uid,
+                                                email: currentUser.email!,
+                                                name: nameTextField.text,
+                                                avatarImage: profileImageView.circleImageView.image,
+                                                secondName: secondNameTextField.text,
+                                                city: cityTextField.text,
+                                                address: addressTextField.text) { (result) in
+                                                    switch result {
+                                                    case .success(let mUser):
+                                                        self.showAlert(with: "Успешно", and: "Приятных вам покупок!", completion: { [weak self] in
+                                                            let mainTabBarController = MainTabBarController(currentUser: mUser)
+                                                            mainTabBarController.modalPresentationStyle = .fullScreen
+                                                            self?.present(mainTabBarController, animated: true)
+                                                        })
+                                                        
+                                                    case .failure(let error):
+                                                        self.showAlert(with: "Ошибка", and: error.localizedDescription)
+                                                    }
+                                                    
+        }
+    }
+    
+    @objc private func plusButtonTapped() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true)
+    }
+
     
 }
 
@@ -73,25 +120,11 @@ extension SetupProfileViewController {
     }
 }
 
-//MARK: - For Canvas prewiew (SwiftUI)
-
-struct SetupProfileVCProvider: PreviewProvider {
-    
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
+// MARK: - UIImagePickerControllerDelegate
+extension SetupProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true)
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        profileImageView.circleImageView.image = image
     }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let viewController = SetupProfileViewController()
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<SetupProfileVCProvider.ContainerView>) -> SetupProfileViewController {
-            return viewController
-        }
-        
-        func updateUIViewController(_ uiViewController: SetupProfileVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<SetupProfileVCProvider.ContainerView>) {
-            
-        }
-    }
-    
 }

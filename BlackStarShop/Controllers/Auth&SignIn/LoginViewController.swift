@@ -21,18 +21,42 @@ class LoginViewController: UIViewController {
         return passwordTextfield
     }()
     let loginButton = UIButton(title: "Войти",
-                                backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
-                                font: .sfProDisplay15, cornerRadius: 24)
-    let signupButton = UIButton(title: "Зарегистрироваться",
-                                   backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
-                                   font: .sfProDisplay15, cornerRadius: 24)
+                               backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+                               font: .sfProDisplay15, cornerRadius: 24)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupConstraints()
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
-
+    
+    @objc private func loginButtonTapped() {
+        AuthService.shared.login(
+            email: emailTextField.text!,
+            password: passwordTextField.text!) { (result) in
+                switch result {
+                case .success(let user):
+                    self.showAlert(with: "Успешно!", and: "Вы авторизованы!") {
+//                        FirestoreService.shared.getUserData(user: user) {[weak self] (result) in
+//                            switch result {
+//                            case .success(let mUser):
+//                                let mainTabBarController = MainTabBarController(currentUser: mUser)
+//                                mainTabBarController.modalPresentationStyle = .fullScreen
+//                                self?.present(mainTabBarController, animated: true, completion: nil)
+//                            case .failure(_):
+//                                self?.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
+//                            }
+//                        }
+                        
+                    }
+                case .failure(let error):
+                    self.showAlert(with: "Ошибка!", and: error.localizedDescription)
+                }
+        }
+        
+    }
 }
 
 
@@ -42,7 +66,7 @@ extension LoginViewController {
     func setupConstraints() {
         
         let stackView = UIStackView(arrangedSubviews: [emailLabel, emailTextField, passwordLabel, passwordTextField], axis: .vertical, spacing: 18)
-        let loginVCElements = [logoLabel, stackView, loginButton, signupButton]
+        let loginVCElements = [logoLabel, stackView, loginButton]
         loginVCElements.forEach { [weak self](element) in
             if let self = self {
                 element.translatesAutoresizingMaskIntoConstraints = false
@@ -61,12 +85,7 @@ extension LoginViewController {
             loginButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 72),
             loginButton.heightAnchor.constraint(equalToConstant: 48),
             loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            signupButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            signupButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
-            signupButton.heightAnchor.constraint(equalToConstant: 48),
-            signupButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 24)
-            
+            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
         ])
     }
 }

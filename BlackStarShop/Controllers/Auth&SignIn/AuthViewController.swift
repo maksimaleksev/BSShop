@@ -22,11 +22,23 @@ class AuthViewController: UIViewController {
                                 backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
                                 font: .sfProDisplay15, cornerRadius: 24)
     
+    private let signUpVC = SignUpViewController()
+    private let loginVC = LoginViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupConstraints()
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func loginButtonTapped() {
+        present(loginVC, animated: true, completion: nil)
+    }
+    
+    @objc func signUpButtonTapped() {
+        present(signUpVC, animated: true, completion: nil)
     }
 }
 
@@ -53,7 +65,7 @@ extension AuthViewController {
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
-            logoLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 181),
+            logoLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height/4),
             logoLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loginButton.heightAnchor.constraint(equalToConstant: 48),
             loginButton.widthAnchor.constraint(equalToConstant: 345),

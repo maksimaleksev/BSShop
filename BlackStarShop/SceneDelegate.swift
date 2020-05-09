@@ -20,10 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-//        window?.rootViewController = AuthViewController()
+        window?.rootViewController = AuthViewController()
 //        window?.rootViewController = LoginViewController()
 //        window?.rootViewController = SetupProfileViewController()
-        let navigationController = UINavigationController()
+//        let navigationController = UINavigationController()
 //        let categoryVC = CategoryViewController()
 //        let subCategoryVC = SubcategoryViewController()
 //        let productListVC = ProductListViewController()
@@ -35,8 +35,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let productVC = ProductViewController()
 //                navigationController.viewControllers = [productVC]
 //                window?.rootViewController = navigationController
-        let mainTabBarController = MainTabBarController()
-        window?.rootViewController = mainTabBarController
+//        let mainTabBarController = MainTabBarController()
+//        window?.rootViewController = mainTabBarController
         window?.makeKeyAndVisible()
     }
 

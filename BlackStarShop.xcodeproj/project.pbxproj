@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,12 @@
 		7B3DB014244DE0DB000047EF /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3DB013244DE0DB000047EF /* AddPhotoView.swift */; };
 		7B3DB016244DE6BA000047EF /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3DB015244DE6BA000047EF /* UIColor+Extension.swift */; };
 		7B454B292451EDD80054E1CA /* SubcategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B454B282451EDD80054E1CA /* SubcategoryViewController.swift */; };
+		7B5F704A2465846900612738 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7B5F70492465846900612738 /* GoogleService-Info.plist */; };
+		7B5F704C24658A6500612738 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F704B24658A6500612738 /* AuthService.swift */; };
+		7B5F705124658B2A00612738 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F704E24658B2900612738 /* UserError.swift */; };
+		7B5F705224658B2A00612738 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F704F24658B2A00612738 /* Validators.swift */; };
+		7B5F705324658B2A00612738 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F705024658B2A00612738 /* AuthError.swift */; };
+		7B5F705624658EF600612738 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5F705524658EF600612738 /* UIViewController+Extension.swift */; };
 		7B6417152456EF2100B39570 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6417142456EF2100B39570 /* CartViewController.swift */; };
 		7B6417172456FA0700B39570 /* CartCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6417162456FA0700B39570 /* CartCell.swift */; };
 		7B64171924584B7D00B39570 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B64171824584B7D00B39570 /* ProfileViewController.swift */; };
@@ -36,6 +42,10 @@
 		7BB882982450A5AC0085AB39 /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB882932450A5AC0085AB39 /* SetupProfileViewController.swift */; };
 		7BB8829B2450A5C60085AB39 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8829A2450A5C60085AB39 /* Category.swift */; };
 		7BB8829D2450A5D60085AB39 /* CategoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8829C2450A5D60085AB39 /* CategoryCellTableViewCell.swift */; };
+		7BC6D7732466CE6A0046B472 /* MUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC6D7722466CE6A0046B472 /* MUser.swift */; };
+		7BC6D7752466D2C40046B472 /* FireStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC6D7742466D2C40046B472 /* FireStoreService.swift */; };
+		7BC6D7792466E4070046B472 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC6D7782466E4070046B472 /* StorageService.swift */; };
+		7BC6D77B2466E4D10046B472 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC6D77A2466E4D10046B472 /* UIImage+Extension.swift */; };
 		7BD40456245356300028E16F /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD40455245356300028E16F /* ProductCollectionViewCell.swift */; };
 		7BD4045A245452580028E16F /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BD4045924544F720028E16F /* Roboto-Bold.ttf */; };
 		7BD4045D245455420028E16F /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BD4045C245455250028E16F /* SFProDisplay-Semibold.ttf */; };
@@ -54,9 +64,13 @@
 		7BDF4A01246432190035C141 /* DelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF4A00246432190035C141 /* DelView.swift */; };
 		7BF0664E24530A790059A1D1 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0664D24530A790059A1D1 /* ProductListViewController.swift */; };
 		7BF0665024530AFC0059A1D1 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0664F24530AFC0059A1D1 /* Product.swift */; };
+		AD3A548EAB9C37B07BF6F1F1 /* Pods_BlackStarShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02270711790106FA20E4C8CF /* Pods_BlackStarShop.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02270711790106FA20E4C8CF /* Pods_BlackStarShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlackStarShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35D62DB0CA6400E8CD9201D9 /* Pods-BlackStarShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackStarShop.release.xcconfig"; path = "Target Support Files/Pods-BlackStarShop/Pods-BlackStarShop.release.xcconfig"; sourceTree = "<group>"; };
+		723995D509B43D15B4ACAF8C /* Pods-BlackStarShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackStarShop.debug.xcconfig"; path = "Target Support Files/Pods-BlackStarShop/Pods-BlackStarShop.debug.xcconfig"; sourceTree = "<group>"; };
 		7B1F2557244A24C90083C060 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		7B1F255C244A32660083C060 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		7B3068DD245C5353001522F9 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +81,12 @@
 		7B3DB013244DE0DB000047EF /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		7B3DB015244DE6BA000047EF /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7B454B282451EDD80054E1CA /* SubcategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SubcategoryViewController.swift; path = BlackStarShop/Controllers/SubcategoryViewController.swift; sourceTree = SOURCE_ROOT; };
+		7B5F70492465846900612738 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7B5F704B24658A6500612738 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		7B5F704E24658B2900612738 /* UserError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
+		7B5F704F24658B2A00612738 /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		7B5F705024658B2A00612738 /* AuthError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		7B5F705524658EF600612738 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		7B6417142456EF2100B39570 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		7B6417162456FA0700B39570 /* CartCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCell.swift; sourceTree = "<group>"; };
 		7B64171824584B7D00B39570 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +108,10 @@
 		7BB882932450A5AC0085AB39 /* SetupProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		7BB8829A2450A5C60085AB39 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		7BB8829C2450A5D60085AB39 /* CategoryCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCellTableViewCell.swift; sourceTree = "<group>"; };
+		7BC6D7722466CE6A0046B472 /* MUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUser.swift; sourceTree = "<group>"; };
+		7BC6D7742466D2C40046B472 /* FireStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreService.swift; sourceTree = "<group>"; };
+		7BC6D7782466E4070046B472 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StorageService.swift; path = "/Users/pirat/Desktop/Учеба/Курсовые/My/BlackStarShop/BlackStarShop/Model/Services/StorageService.swift"; sourceTree = "<absolute>"; };
+		7BC6D77A2466E4D10046B472 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		7BD40455245356300028E16F /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		7BD4045924544F720028E16F /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		7BD4045B245455250028E16F /* SFProDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.ttf"; sourceTree = "<group>"; };
@@ -113,12 +137,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AD3A548EAB9C37B07BF6F1F1 /* Pods_BlackStarShop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B4DB13FA874FD661399F089 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				723995D509B43D15B4ACAF8C /* Pods-BlackStarShop.debug.xcconfig */,
+				35D62DB0CA6400E8CD9201D9 /* Pods-BlackStarShop.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		7B08E651244E0AC100387FDC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				7B6E43E124475D1400153912 /* UIButton+Extension.swift */,
+				7B5F705524658EF600612738 /* UIViewController+Extension.swift */,
 				7B3068E3245C7674001522F9 /* UIBarButtonIcon+Extension.swift */,
 				7BDF49E824642CF70035C141 /* CGPoint+Velocity.swift */,
 				7B3068E5245C76D8001522F9 /* CAShapeLayer+Extension.swift */,
@@ -157,8 +192,29 @@
 				7B6E43DF24475A8600153912 /* UIFont+Extension.swift */,
 				7B1F255C244A32660083C060 /* UIStackView+Extension.swift */,
 				7B3DB015244DE6BA000047EF /* UIColor+Extension.swift */,
+				7BC6D77A2466E4D10046B472 /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7B5F704D24658AD500612738 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				7B5F705024658B2A00612738 /* AuthError.swift */,
+				7B5F704E24658B2900612738 /* UserError.swift */,
+				7B5F704F24658B2A00612738 /* Validators.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		7B5F705424658B5500612738 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7B5F704B24658A6500612738 /* AuthService.swift */,
+				7BC6D7742466D2C40046B472 /* FireStoreService.swift */,
+				7BC6D7782466E4070046B472 /* StorageService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		7B6E43BD2447556200153912 = {
@@ -166,6 +222,8 @@
 			children = (
 				7B6E43C82447556200153912 /* BlackStarShop */,
 				7B6E43C72447556200153912 /* Products */,
+				2B4DB13FA874FD661399F089 /* Pods */,
+				AD2CC9B9EE4D866F36B44EFF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,9 +243,11 @@
 				7BB882992450A5C60085AB39 /* Model */,
 				7B08E651244E0AC100387FDC /* Controllers */,
 				7B1F255A244A2BA60083C060 /* UIKit */,
+				7B5F704D24658AD500612738 /* Helpers */,
 				7B6E43D22447556300153912 /* Assets.xcassets */,
 				7B6E43D42447556300153912 /* LaunchScreen.storyboard */,
 				7B6E43D72447556300153912 /* Info.plist */,
+				7B5F70492465846900612738 /* GoogleService-Info.plist */,
 				7BD4045824544F4A0028E16F /* Fonts */,
 			);
 			path = BlackStarShop;
@@ -208,8 +268,10 @@
 		7BB882992450A5C60085AB39 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7BC6D7722466CE6A0046B472 /* MUser.swift */,
 				7BB8829A2450A5C60085AB39 /* Category.swift */,
 				7BF0664F24530AFC0059A1D1 /* Product.swift */,
+				7B5F705424658B5500612738 /* Services */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -271,6 +333,14 @@
 			path = PresentationController;
 			sourceTree = "<group>";
 		};
+		AD2CC9B9EE4D866F36B44EFF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				02270711790106FA20E4C8CF /* Pods_BlackStarShop.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -278,9 +348,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7B6E43DA2447556300153912 /* Build configuration list for PBXNativeTarget "BlackStarShop" */;
 			buildPhases = (
+				0F290641E0BFDDB57344CF31 /* [CP] Check Pods Manifest.lock */,
 				7B6E43C22447556200153912 /* Sources */,
 				7B6E43C32447556200153912 /* Frameworks */,
 				7B6E43C42447556200153912 /* Resources */,
+				E5B5A31E836EC4C136EB54FC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -331,6 +403,7 @@
 			files = (
 				7BB4EF012457510800698FE2 /* AkzidenzGroteskPro-BoldCn.ttf in Resources */,
 				7B6E43D62447556300153912 /* LaunchScreen.storyboard in Resources */,
+				7B5F704A2465846900612738 /* GoogleService-Info.plist in Resources */,
 				7B3068E2245C6D52001522F9 /* Roboto-Regular.ttf in Resources */,
 				7BD4045D245455420028E16F /* SFProDisplay-Semibold.ttf in Resources */,
 				7B6E43D32447556300153912 /* Assets.xcassets in Resources */,
@@ -342,21 +415,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0F290641E0BFDDB57344CF31 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlackStarShop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5B5A31E836EC4C136EB54FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BlackStarShop/Pods-BlackStarShop-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BlackStarShop/Pods-BlackStarShop-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlackStarShop/Pods-BlackStarShop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7B6E43C22447556200153912 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7BDF49FD24642DA00035C141 /* TransitionDriver.swift in Sources */,
+				7BC6D7752466D2C40046B472 /* FireStoreService.swift in Sources */,
 				7BF0665024530AFC0059A1D1 /* Product.swift in Sources */,
 				7BB882952450A5AC0085AB39 /* SignUpViewController.swift in Sources */,
 				7B64171B24585B6B00B39570 /* MainTabBarController.swift in Sources */,
 				7BDF49E924642CF70035C141 /* CGPoint+Velocity.swift in Sources */,
 				7BD40456245356300028E16F /* ProductCollectionViewCell.swift in Sources */,
 				7BDF4A01246432190035C141 /* DelView.swift in Sources */,
+				7B5F704C24658A6500612738 /* AuthService.swift in Sources */,
+				7B5F705224658B2A00612738 /* Validators.swift in Sources */,
 				7B454B292451EDD80054E1CA /* SubcategoryViewController.swift in Sources */,
 				7BB882942450A5AC0085AB39 /* CategoryViewController.swift in Sources */,
 				7B6E43DE244759BC00153912 /* UILabel+Extension.swift in Sources */,
+				7B5F705624658EF600612738 /* UIViewController+Extension.swift in Sources */,
+				7BC6D7732466CE6A0046B472 /* MUser.swift in Sources */,
 				7B1F2558244A24C90083C060 /* FormTextField.swift in Sources */,
 				7BB882982450A5AC0085AB39 /* SetupProfileViewController.swift in Sources */,
 				7BB882962450A5AC0085AB39 /* AuthViewController.swift in Sources */,
@@ -366,7 +486,10 @@
 				7BDF49F624642D680035C141 /* PresentationController.swift in Sources */,
 				7B3DB014244DE0DB000047EF /* AddPhotoView.swift in Sources */,
 				7B1F255D244A32660083C060 /* UIStackView+Extension.swift in Sources */,
+				7B5F705324658B2A00612738 /* AuthError.swift in Sources */,
 				7BF0664E24530A790059A1D1 /* ProductListViewController.swift in Sources */,
+				7B5F705124658B2A00612738 /* UserError.swift in Sources */,
+				7BC6D77B2466E4D10046B472 /* UIImage+Extension.swift in Sources */,
 				7B6E43E024475A8600153912 /* UIFont+Extension.swift in Sources */,
 				7BDF49F124642D440035C141 /* InstantPanGestureRecognizer.swift in Sources */,
 				7BDF49ED24642D180035C141 /* PresentAnimation.swift in Sources */,
@@ -381,6 +504,7 @@
 				7B6417152456EF2100B39570 /* CartViewController.swift in Sources */,
 				7BB8829B2450A5C60085AB39 /* Category.swift in Sources */,
 				7BDF49F924642D8D0035C141 /* SizesCell.swift in Sources */,
+				7BC6D7792466E4070046B472 /* StorageService.swift in Sources */,
 				7B6E43CC2447556200153912 /* SceneDelegate.swift in Sources */,
 				7BDF49FE24642DA00035C141 /* SizesViewController.swift in Sources */,
 				7BB882972450A5AC0085AB39 /* LoginViewController.swift in Sources */,
@@ -519,6 +643,7 @@
 		};
 		7B6E43DB2447556300153912 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 723995D509B43D15B4ACAF8C /* Pods-BlackStarShop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -537,6 +662,7 @@
 		};
 		7B6E43DC2447556300153912 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35D62DB0CA6400E8CD9201D9 /* Pods-BlackStarShop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

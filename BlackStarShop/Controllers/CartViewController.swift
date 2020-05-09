@@ -98,9 +98,8 @@ class CartViewController: UIViewController {
         navigationItem.leftBarButtonItem = leftBarButtonItem
     }
     
-    func goDeleteAlert() {
+    func callDeleteAlert() {
         self.view.addSubview(backgroundForSizeView)
-        
         self.view.addSubview(delView)
         delView.layer.opacity = 1
         backgroundForSizeView.frame.size = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
@@ -119,7 +118,7 @@ class CartViewController: UIViewController {
     }
     
     @objc func delAll() {
-        goDeleteAlert()
+        callDeleteAlert()
     }
     
 }

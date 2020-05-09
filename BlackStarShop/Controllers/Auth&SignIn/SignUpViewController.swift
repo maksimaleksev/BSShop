@@ -26,17 +26,37 @@ class SignUpViewController: UIViewController {
         passwordTextfield.isSecureTextEntry = true
         return passwordTextfield
     }()
-
-    let loginButton = UIButton(title: "Войти",
-                               backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
-                               font: .sfProDisplay15, cornerRadius: 24)
+    
+    let signUpButton = UIButton(title: "Зарегистрироваться",
+                                backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+                                font: .sfProDisplay15, cornerRadius: 24)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupConstraints()
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        
     }
     
+    
+    @objc private func signUpButtonTapped() {
+        AuthService.shared.register(email: emailTextField.text, password: passwordTextField.text, confirmPassword: passwordReplyTextField.text) { (result) in
+            
+            switch result {
+                
+            case .success(let user):
+                self.showAlert(with: "Успешно", and: "Вы зарегистрированы!") {
+                    let setupVC = SetupProfileViewController(currentUser: user)
+                    setupVC.modalPresentationStyle = .fullScreen
+                    self.present(setupVC, animated: true)
+                }
+                
+            case .failure(let error):
+                self.showAlert(with: "Ошибка", and: error.localizedDescription)
+            }
+        }
+    }
     
 }
 
@@ -44,7 +64,7 @@ extension SignUpViewController {
     func setupConstraints() {
         
         let stackView = UIStackView(arrangedSubviews: [emailLabel, emailTextField, passwordLabel, passwordTextField, passwordReplyLabel, passwordReplyTextField], axis: .vertical, spacing: 18)
-        let loginVCElements = [logoLabel, stackView, loginButton]
+        let loginVCElements = [logoLabel, stackView, signUpButton]
         loginVCElements.forEach { [weak self](element) in
             if let self = self {
                 element.translatesAutoresizingMaskIntoConstraints = false
@@ -61,33 +81,33 @@ extension SignUpViewController {
             stackView.topAnchor.constraint(equalTo: logoLabel.bottomAnchor, constant: 24),
             stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 27),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -27),
-            loginButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 72),
-            loginButton.heightAnchor.constraint(equalToConstant: 48),
-            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
+            signUpButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 72),
+            signUpButton.heightAnchor.constraint(equalToConstant: 48),
+            signUpButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            signUpButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
         ])
     }
 }
+
+//MARK: - For Canvas prewiew (SwiftUI)
+
+struct SignUpVCProvider: PreviewProvider {
     
-    //MARK: - For Canvas prewiew (SwiftUI)
+    static var previews: some View {
+        ContainerView().edgesIgnoringSafeArea(.all)
+    }
     
-    struct SignUpVCProvider: PreviewProvider {
+    struct ContainerView: UIViewControllerRepresentable {
         
-        static var previews: some View {
-            ContainerView().edgesIgnoringSafeArea(.all)
+        let viewController = SignUpViewController()
+        
+        func makeUIViewController(context: UIViewControllerRepresentableContext<SignUpVCProvider.ContainerView>) -> SignUpViewController {
+            return viewController
         }
         
-        struct ContainerView: UIViewControllerRepresentable {
+        func updateUIViewController(_ uiViewController: SignUpVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<SignUpVCProvider.ContainerView>) {
             
-            let viewController = SignUpViewController()
-            
-            func makeUIViewController(context: UIViewControllerRepresentableContext<SignUpVCProvider.ContainerView>) -> SignUpViewController {
-                return viewController
-            }
-            
-            func updateUIViewController(_ uiViewController: SignUpVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<SignUpVCProvider.ContainerView>) {
-                
-            }
         }
-        
+    }
+    
 }
