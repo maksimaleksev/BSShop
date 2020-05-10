@@ -39,16 +39,19 @@ class LoginViewController: UIViewController {
                 switch result {
                 case .success(let user):
                     self.showAlert(with: "Успешно!", and: "Вы авторизованы!") {
-//                        FirestoreService.shared.getUserData(user: user) {[weak self] (result) in
-//                            switch result {
-//                            case .success(let mUser):
-//                                let mainTabBarController = MainTabBarController(currentUser: mUser)
-//                                mainTabBarController.modalPresentationStyle = .fullScreen
-//                                self?.present(mainTabBarController, animated: true, completion: nil)
-//                            case .failure(_):
-//                                self?.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
-//                            }
-//                        }
+                        
+                        FirestoreService.shared.getUserData(user: user) {[weak self] (result) in
+                            switch result {
+                            case .success(let mUser):
+                                print(mUser)
+                                let mainTabBarController = MainTabBarController(currentUser: mUser)
+                                mainTabBarController.modalPresentationStyle = .fullScreen
+                                self?.present(mainTabBarController, animated: true, completion: nil)
+                            case .failure(_):
+                                print("error")
+                                self?.present(SetupProfileViewController(currentUser: user), animated: true, completion: nil)
+                            }
+                        }
                         
                     }
                 case .failure(let error):

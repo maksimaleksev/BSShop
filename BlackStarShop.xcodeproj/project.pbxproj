@@ -34,6 +34,7 @@
 		7B6E43DE244759BC00153912 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E43DD244759BC00153912 /* UILabel+Extension.swift */; };
 		7B6E43E024475A8600153912 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E43DF24475A8600153912 /* UIFont+Extension.swift */; };
 		7B6E43E224475D1400153912 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E43E124475D1400153912 /* UIButton+Extension.swift */; };
+		7BA9BA1C246846B4004F3F2B /* ChangeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9BA1B246846B4004F3F2B /* ChangeProfileViewController.swift */; };
 		7BB4EF012457510800698FE2 /* AkzidenzGroteskPro-BoldCn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BB4EF00245750DD00698FE2 /* AkzidenzGroteskPro-BoldCn.ttf */; };
 		7BB882942450A5AC0085AB39 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8828E2450A5AC0085AB39 /* CategoryViewController.swift */; };
 		7BB882952450A5AC0085AB39 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB882902450A5AC0085AB39 /* SignUpViewController.swift */; };
@@ -100,6 +101,7 @@
 		7B6E43DD244759BC00153912 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		7B6E43DF24475A8600153912 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		7B6E43E124475D1400153912 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		7BA9BA1B246846B4004F3F2B /* ChangeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileViewController.swift; sourceTree = "<group>"; };
 		7BB4EF00245750DD00698FE2 /* AkzidenzGroteskPro-BoldCn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AkzidenzGroteskPro-BoldCn.ttf"; sourceTree = "<group>"; };
 		7BB8828E2450A5AC0085AB39 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		7BB882902450A5AC0085AB39 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				7BB882912450A5AC0085AB39 /* AuthViewController.swift */,
 				7BB882922450A5AC0085AB39 /* LoginViewController.swift */,
 				7BB882932450A5AC0085AB39 /* SetupProfileViewController.swift */,
+				7BA9BA1B246846B4004F3F2B /* ChangeProfileViewController.swift */,
 				7B64171824584B7D00B39570 /* ProfileViewController.swift */,
 			);
 			path = "Auth&SignIn";
@@ -496,6 +499,7 @@
 				7B3DB016244DE6BA000047EF /* UIColor+Extension.swift in Sources */,
 				7B3068E4245C7674001522F9 /* UIBarButtonIcon+Extension.swift in Sources */,
 				7BDF49FF24642DA00035C141 /* TransitionDirection.swift in Sources */,
+				7BA9BA1C246846B4004F3F2B /* ChangeProfileViewController.swift in Sources */,
 				7B64171924584B7D00B39570 /* ProfileViewController.swift in Sources */,
 				7BDF49F724642D680035C141 /* DimmPresentationController.swift in Sources */,
 				7B6417172456FA0700B39570 /* CartCell.swift in Sources */,

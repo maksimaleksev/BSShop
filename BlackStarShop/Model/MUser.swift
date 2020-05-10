@@ -40,7 +40,7 @@ struct MUser {
     
     init?(document: DocumentSnapshot) {
         guard let data = document.data() else { return nil }
-        guard let name = data["username"] as? String,
+        guard let name = data["name"] as? String,
             let secondName = data["secondName"] as? String,
             let city = data["city"] as? String,
             let address = data["address"] as? String,

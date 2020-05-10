@@ -31,7 +31,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
             
         let categoryVC = CategoryViewController()
-        let profileVC = ProfileViewController()
+        let profileVC = ProfileViewController(currentUser: currentUser)
         let cartVC = CartViewController()
         let boldConfig = UIImage.SymbolConfiguration(weight: .medium)
         let profileImage = UIImage(systemName: "person", withConfiguration: boldConfig)!

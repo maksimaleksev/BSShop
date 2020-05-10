@@ -8,8 +8,20 @@
 
 import UIKit
 import SwiftUI
+import SDWebImage
 
 class ProfileViewController: UIViewController {
+    
+    private let currentUser: MUser
+    
+    init(currentUser: MUser) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     var profileImageView: UIImageView = {
         let profileImageView = UIImageView()
@@ -17,19 +29,20 @@ class ProfileViewController: UIViewController {
         return profileImageView
     }()
     
-    let nameLabel = UILabel(text: "Имя:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
-    let secondNameLabel = UILabel(text: "Фамилия:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
-    let cityLabel = UILabel(text: "Город:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
-    let addressLabel = UILabel(text: "Адрес:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
-
+    var nameLabel = UILabel(text: "Имя:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    var secondNameLabel = UILabel(text: "Фамилия:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    var cityLabel = UILabel(text: "Город:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    var addressLabel = UILabel(text: "Адрес:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setNavigationBarItems()
         setupConstraints()
-       
-
-            }
+        setUpValuesForUIElements()
+        
+        
+    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -39,11 +52,27 @@ class ProfileViewController: UIViewController {
         profileImageView.layer.borderWidth = 1
     }
     
+    private func setUpValuesForUIElements() {
+        nameLabel.text = "Имя: " + currentUser.name
+        secondNameLabel.text = "Фамилия: " + currentUser.secondName
+        cityLabel.text = "Город: " + currentUser.city
+        addressLabel.text = "Адрес: " + currentUser.address
+        profileImageView.sd_setImage(with: URL(string: currentUser.avatarStringURL))
+        profileImageView.contentMode = .scaleAspectFill
+        
+    }
+    
     private func setNavigationBarItems() {
         navigationItem.title = "Ваш профиль"
-        let rightBarButtonItem = UIBarButtonItem(title: "Изменить", style: .plain, target: nil, action: nil)
+        let rightBarButtonItem = UIBarButtonItem(title: "Изменить", style: .done, target: self, action: #selector(changeProfile))
         navigationItem.rightBarButtonItem = rightBarButtonItem
     }
+    
+    @objc private func changeProfile() {
+        let changeVC = ChangeProfileViewController(currentUser: currentUser)
+        self.present(changeVC, animated: true)
+    }
+    
 }
 
 //MARK: - Setup Constraints
