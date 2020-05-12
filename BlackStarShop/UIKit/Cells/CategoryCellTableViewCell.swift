@@ -15,6 +15,8 @@ class CategoryCellTableViewCell: UITableViewCell {
         let catImage = UIImageView()
         catImage.contentMode = .scaleAspectFit
         catImage.translatesAutoresizingMaskIntoConstraints = false
+        catImage.layer.borderColor = UIColor.customGrey().cgColor
+        catImage.layer.borderWidth = 1
         return catImage
     }()
     

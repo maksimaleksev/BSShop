@@ -66,6 +66,13 @@ struct ShoppingCategory: Decodable {
     var image: String?
     var iconImage: String?
     var subcategories: [ShoppingSubCategoties]?
+    var sortedSubCategories: [ShoppingSubCategoties] {
+        guard let subcategories = subcategories else {return []}
+        return subcategories.sorted { (subCat1, subCat2) -> Bool in
+            guard let numSubCat1 = subCat1.sortOrder, let numSubCat2 = subCat2.sortOrder else { return false}
+            return numSubCat1 < numSubCat2
+        }
+    }
     
     enum CodingKeys: String, CodingKey {
         case name

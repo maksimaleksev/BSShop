@@ -12,6 +12,16 @@ class NetworkService {
     
     static let shared = NetworkService()
     
+    func url (from path: String) -> URL {
+        var components = URLComponents()
+        components.scheme = APIref.scheme
+        components.host = APIref.host
+        components.path = path
+        
+        return components.url!
+        
+    }
+    
     func request(urlString: String, completion: @escaping (Result<Data, Error>) -> Void) {
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in

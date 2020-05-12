@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import SDWebImage
 import SwiftUI
 
 class SubcategoryViewController: UIViewController {
     
-    private var subCategories: [Category] = [Category(catName: "Спортивные костюмы", catImage: "sportsuits"),
-                                             Category(catName: "Толстовки и худи", catImage: "hoodies"),
-                                             Category(catName: "Платья", catImage: "dresses"),
-                                             Category(catName: "Рубашки", catImage: "shirts")]
+    private var shoppingSubCategoriesData: [ShoppingSubCategoties]
+    private var subCatViewControllerTitle: String
+    
+    init(shoppingSubCategoriesData: [ShoppingSubCategoties], subCatViewControllerTitle: String) {
+        self.shoppingSubCategoriesData = shoppingSubCategoriesData
+        self.subCatViewControllerTitle = subCatViewControllerTitle
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     var tableView: UITableView = {
         let tableView = UITableView()
@@ -24,31 +33,39 @@ class SubcategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Женщинам"
+        self.navigationItem.title = subCatViewControllerTitle
         setUpTableView()
         setupConstraints()
     }
     
+}
+
+//MARK: - Setup Table View
+
+extension SubcategoryViewController {
     private func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         self.tableView.register(CategoryCellTableViewCell.self, forCellReuseIdentifier: CategoryCellTableViewCell.reuseId)
     }
-    
+
 }
 
 //MARK:- UITableViewDelegate, UITableViewDataSouce
 
 extension SubcategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return subCategories.count
+        return shoppingSubCategoriesData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCellTableViewCell.reuseId) as! CategoryCellTableViewCell
-        cell.catImage.image = UIImage(named: subCategories[indexPath.row].catImage)
-        cell.catNameLabel.text = subCategories[indexPath.row].catName
+        if let iconImage = shoppingSubCategoriesData[indexPath.row].iconImage {
+            let imgUrlString = APIref.urlString + iconImage
+            cell.catImage.sd_setImage(with: URL(string: imgUrlString))
+        }
+        cell.catNameLabel.text = shoppingSubCategoriesData[indexPath.row].name
         return cell
     }
     
@@ -70,25 +87,3 @@ extension SubcategoryViewController {
     }
 }
 
-//MARK: - For Canvas prewiew (SwiftUI)
-
-struct SubCategoryVCProvider: PreviewProvider {
-    
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let viewController = SubcategoryViewController()
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<SubCategoryVCProvider.ContainerView>) -> SubcategoryViewController {
-            return viewController
-        }
-        
-        func updateUIViewController(_ uiViewController: SubCategoryVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<SubCategoryVCProvider.ContainerView>) {
-            
-        }
-    }
-    
-}

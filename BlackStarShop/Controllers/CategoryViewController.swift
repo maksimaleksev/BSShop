@@ -12,11 +12,6 @@ import SwiftUI
 
 class CategoryViewController: UIViewController {
     
-    private var categories: [Category] = [Category(catName: "Мужчинам", catImage: "men"),
-                                          Category(catName: "Женщинам", catImage: "women"),
-                                          Category(catName: "Детям", catImage: "kids"),
-                                          Category(catName: "Аксесуары", catImage: "accessories")]
-    
     private var shopingCategoriesResponse: ShopingCategoriesResponse?
     
     var tableView: UITableView = {
@@ -33,21 +28,38 @@ class CategoryViewController: UIViewController {
         loadCategories()
     }
     
-    func loadCategories () {
+}
+
+//MARK: - Load data (Categories)
+
+extension CategoryViewController {
+    private func loadCategories () {
         NetworkDataFetcher.shared.fetchCategories { [weak self] shopingCategoriesResponse in
             self?.shopingCategoriesResponse = shopingCategoriesResponse
             self?.tableView.reloadData()
-
         }
     }
-    
-    func setUpTableView() {
+}
+
+
+//MARK: - Table View set up
+
+extension CategoryViewController {
+    private func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         self.tableView.register(CategoryCellTableViewCell.self, forCellReuseIdentifier: CategoryCellTableViewCell.reuseId)
     }
-    
+}
+
+//MARK: - Navigate to subcategories VC
+
+extension CategoryViewController {
+    private func goTosubCategoriesVC (with shoppingSubCategoriesData: [ShoppingSubCategoties], and title: String) {
+        let subCatVC = SubcategoryViewController(shoppingSubCategoriesData: shoppingSubCategoriesData, subCatViewControllerTitle: title)
+        self.navigationController?.pushViewController(subCatVC, animated: true)
+    }
 }
 
 //MARK:- UITableViewDelegate, UITableViewDataSouce
@@ -62,9 +74,15 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCellTableViewCell.reuseId) as! CategoryCellTableViewCell
         if let shopingCategories = shopingCategoriesResponse?.shopingCategories,
             let shopingCategory = shopingCategories[indexPath.row],
-            let stringImageUrl = shopingCategory.image  {
-            let imageURL = URL (string: APIref.urlString + stringImageUrl)
-            cell.catImage.sd_setImage(with: imageURL)
+            let stringImageUrl = shopingCategory.image,
+            let stringIconUrl = shopingCategory.iconImage  {
+            if stringImageUrl != "" {
+                let imageURL = URL (string: APIref.urlString + stringImageUrl)
+                cell.catImage.sd_setImage(with: imageURL)
+            } else {
+                let imageURL = URL (string: APIref.urlString + stringIconUrl)
+                cell.catImage.sd_setImage(with: imageURL)
+            }
             cell.catNameLabel.text = shopingCategory.name
         }
         
@@ -74,7 +92,15 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let shoppingSubCategoriesData = shopingCategoriesResponse?.shopingCategories[indexPath.row]?.sortedSubCategories,
+            let subVCTitle = shopingCategoriesResponse?.shopingCategories[indexPath.row]?.name else { return }
+        goTosubCategoriesVC(with: shoppingSubCategoriesData, and: subVCTitle)
+        
+    }
 }
+
 
 //MARK: - Setup Constraints
 
