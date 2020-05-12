@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 import SwiftUI
 
 class CategoryViewController: UIViewController {
@@ -15,6 +16,9 @@ class CategoryViewController: UIViewController {
                                           Category(catName: "Женщинам", catImage: "women"),
                                           Category(catName: "Детям", catImage: "kids"),
                                           Category(catName: "Аксесуары", catImage: "accessories")]
+    
+    private var shopingCategoriesResponse: ShopingCategoriesResponse?
+    
     var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -26,6 +30,15 @@ class CategoryViewController: UIViewController {
         self.navigationItem.title = "Категории"
         setUpTableView()
         setupConstraints()
+        loadCategories()
+    }
+    
+    func loadCategories () {
+        NetworkDataFetcher.shared.fetchCategories { [weak self] shopingCategoriesResponse in
+            self?.shopingCategoriesResponse = shopingCategoriesResponse
+            self?.tableView.reloadData()
+
+        }
     }
     
     func setUpTableView() {
@@ -41,13 +54,20 @@ class CategoryViewController: UIViewController {
 
 extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        guard let shopingCategories = shopingCategoriesResponse?.shopingCategories else { return 0 }
+        return shopingCategories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCellTableViewCell.reuseId) as! CategoryCellTableViewCell
-        cell.catImage.image = UIImage(named: categories[indexPath.row].catImage)
-        cell.catNameLabel.text = categories[indexPath.row].catName
+        if let shopingCategories = shopingCategoriesResponse?.shopingCategories,
+            let shopingCategory = shopingCategories[indexPath.row],
+            let stringImageUrl = shopingCategory.image  {
+            let imageURL = URL (string: APIref.urlString + stringImageUrl)
+            cell.catImage.sd_setImage(with: imageURL)
+            cell.catNameLabel.text = shopingCategory.name
+        }
+        
         return cell
     }
     

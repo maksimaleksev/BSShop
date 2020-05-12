@@ -13,6 +13,7 @@ class CategoryCellTableViewCell: UITableViewCell {
     static let reuseId = "CategoryCell"
     var catImage: UIImageView = {
         let catImage = UIImageView()
+        catImage.contentMode = .scaleAspectFit
         catImage.translatesAutoresizingMaskIntoConstraints = false
         return catImage
     }()
@@ -21,6 +22,7 @@ class CategoryCellTableViewCell: UITableViewCell {
         let catNameLabel = UILabel()
         catNameLabel.translatesAutoresizingMaskIntoConstraints = false
         catNameLabel.text = ""
+        catNameLabel.font = .sfProDisplay16()
         return catNameLabel
     }()
     
