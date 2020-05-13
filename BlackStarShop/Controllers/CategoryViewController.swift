@@ -94,10 +94,18 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let shoppingSubCategoriesData = shopingCategoriesResponse?.shopingCategories[indexPath.row]?.sortedSubCategories,
-            let subVCTitle = shopingCategoriesResponse?.shopingCategories[indexPath.row]?.name else { return }
-        goTosubCategoriesVC(with: shoppingSubCategoriesData, and: subVCTitle)
         
+        if let shopingCategoriesResponse = shopingCategoriesResponse,
+            let collection = shopingCategoriesResponse.shopingCategories[indexPath.row],
+            let nameCollection = collection.name,
+            nameCollection == "Коллекции" {
+            let subVCTitle = nameCollection
+            goTosubCategoriesVC(with: shopingCategoriesResponse.collectionSorted(), and: subVCTitle)
+        } else {
+            guard let shoppingSubCategoriesData = shopingCategoriesResponse?.shopingCategories[indexPath.row]?.categoryFiltered(),
+                let subVCTitle = shopingCategoriesResponse?.shopingCategories[indexPath.row]?.name else { return }
+            goTosubCategoriesVC(with: shoppingSubCategoriesData, and: subVCTitle)
+        }
     }
 }
 

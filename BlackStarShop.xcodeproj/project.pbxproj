@@ -32,7 +32,6 @@
 		7B641764246A98B000B39570 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B641763246A98B000B39570 /* NetworkDataFetcher.swift */; };
 		7B641766246A99AC00B39570 /* ShopingCategoriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B641765246A99AC00B39570 /* ShopingCategoriesResponse.swift */; };
 		7B641768246AD52600B39570 /* APIref.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B641767246AD52600B39570 /* APIref.swift */; };
-		7B64176B246AEEE100B39570 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B64176A246AEEE100B39570 /* Category.swift */; };
 		7B6E43CA2447556200153912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E43C92447556200153912 /* AppDelegate.swift */; };
 		7B6E43CC2447556200153912 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E43CB2447556200153912 /* SceneDelegate.swift */; };
 		7B6E43D32447556300153912 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B6E43D22447556300153912 /* Assets.xcassets */; };
@@ -101,7 +100,6 @@
 		7B641763246A98B000B39570 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		7B641765246A99AC00B39570 /* ShopingCategoriesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopingCategoriesResponse.swift; sourceTree = "<group>"; };
 		7B641767246AD52600B39570 /* APIref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIref.swift; sourceTree = "<group>"; };
-		7B64176A246AEEE100B39570 /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		7B6E43C62447556200153912 /* BlackStarShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlackStarShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B6E43C92447556200153912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B6E43CB2447556200153912 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -301,7 +299,6 @@
 			children = (
 				7BC6D7722466CE6A0046B472 /* MUser.swift */,
 				7B641765246A99AC00B39570 /* ShopingCategoriesResponse.swift */,
-				7B64176A246AEEE100B39570 /* Category.swift */,
 				7BF0664F24530AFC0059A1D1 /* Product.swift */,
 			);
 			path = Model;
@@ -514,7 +511,6 @@
 				7BB882962450A5AC0085AB39 /* AuthViewController.swift in Sources */,
 				7BDF49F224642D440035C141 /* PanelTransition.swift in Sources */,
 				7BDF49EE24642D180035C141 /* DismissAnimation.swift in Sources */,
-				7B64176B246AEEE100B39570 /* Category.swift in Sources */,
 				7B6E43CA2447556200153912 /* AppDelegate.swift in Sources */,
 				7BDF49F624642D680035C141 /* PresentationController.swift in Sources */,
 				7B3DB014244DE0DB000047EF /* AddPhotoView.swift in Sources */,

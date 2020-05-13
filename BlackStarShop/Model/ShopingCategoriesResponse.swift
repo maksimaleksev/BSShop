@@ -9,27 +9,49 @@
 import Foundation
 
 struct ShopingCategoriesResponse: Decodable {
-    var shoes: ShoppingCategory?
+//    var shoes: ShoppingCategory?                  //---under construction uncomment this when it wil be ready
     var accessories: ShoppingCategory?
     var forWomen: ShoppingCategory?
     var forMen: ShoppingCategory?
     var forKids: ShoppingCategory?
     var collections: ShoppingCategory?
-    var preOrder: ShoppingCategory?
+//    var preOrder: ShoppingCategory?               //---under construction uncomment this when it wil be ready
     var discounts: ShoppingCategory?
     var newProducts: ShoppingCategory?
     
+    
+    var collectionsSubCategories: [ShoppingSubCategoties] {
+        
+        let categories = [accessories, forWomen, forMen, forKids, collections, discounts, newProducts]
+        var collections = [ShoppingSubCategoties]()
+        for category in categories {
+            if let category = category, let categoryCollections = category.subcategories  {
+                collections.append(contentsOf: categoryCollections.filter({ $0.type == "Collection"}))
+            }
+        }
+        
+        return collections
+    }
+    
+    
     var shopingCategories: [ShoppingCategory?] {
-        return [shoes, accessories, forWomen, forMen, forKids, collections, preOrder, discounts, newProducts].sorted { (cat1, cat2) -> Bool in
+        return [accessories, forWomen, forMen, forKids, collections, discounts, newProducts].sorted { (cat1, cat2) -> Bool in
             
             if let cat1 = cat1, let cat2 = cat2, let sortNumber1 = cat1.sortOrder, let sortNumber2 = cat2.sortOrder {
                 return sortNumber1 < sortNumber2
             } else {
                 return false
             }
-            
         }
         
+    }
+    
+    
+    func collectionSorted() -> [ShoppingSubCategoties] {
+        return collectionsSubCategories.sorted { (collection1, collection2) -> Bool in
+            guard let sortNum1 = collection1.sortOrder, let sortNum2 = collection2.sortOrder else { return false}
+            return sortNum1 < sortNum2
+        }
     }
     
     enum CodingKeys: String, CodingKey {
@@ -46,13 +68,13 @@ struct ShopingCategoriesResponse: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.shoes = try? container.decode(ShoppingCategory.self, forKey: .shoes)
+//        self.shoes = try? container.decode(ShoppingCategory.self, forKey: .shoes) //---under construction uncomment this when it wil be ready
         self.accessories = try? container.decode(ShoppingCategory.self, forKey: .accessories)
         self.forWomen = try? container.decode(ShoppingCategory.self, forKey: .forWomen)
         self.forMen = try? container.decode(ShoppingCategory.self, forKey: .forMen)
         self.forKids = try? container.decode(ShoppingCategory.self, forKey: .forKids)
         self.collections = try? container.decode(ShoppingCategory.self, forKey: .collections)
-        self.preOrder = try? container.decode(ShoppingCategory.self, forKey: .preOrder)
+//        self.preOrder = try? container.decode(ShoppingCategory.self, forKey: .preOrder)   //---under construction uncomment this when it wil be ready
         self.discounts = try? container.decode(ShoppingCategory.self, forKey: .discounts)
         self.newProducts = try? container.decode(ShoppingCategory.self, forKey: .newProducts)
     }
@@ -66,13 +88,21 @@ struct ShoppingCategory: Decodable {
     var image: String?
     var iconImage: String?
     var subcategories: [ShoppingSubCategoties]?
+    
     var sortedSubCategories: [ShoppingSubCategoties] {
         guard let subcategories = subcategories else {return []}
         return subcategories.sorted { (subCat1, subCat2) -> Bool in
-            guard let numSubCat1 = subCat1.sortOrder, let numSubCat2 = subCat2.sortOrder else { return false}
+            guard let numSubCat1 = subCat1.sortOrder, let numSubCat2 = subCat2.sortOrder else { return false }
             return numSubCat1 < numSubCat2
         }
     }
+        
+        func categoryFiltered() -> [ShoppingSubCategoties] {
+            return sortedSubCategories.filter { (shoppingSubCategory) -> Bool in
+                guard let type = shoppingSubCategory.type, type == "Category" else { return false }
+                return true
+            }
+        }
     
     enum CodingKeys: String, CodingKey {
         case name
