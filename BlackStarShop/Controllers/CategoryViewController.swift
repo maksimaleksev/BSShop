@@ -20,12 +20,24 @@ class CategoryViewController: UIViewController {
         return tableView
     }()
     
+    let activiityIndicator: UIActivityIndicatorView = {
+        let activiityIndicator = UIActivityIndicatorView()
+        activiityIndicator.hidesWhenStopped = true
+        activiityIndicator.style = .medium
+        return activiityIndicator
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Категории"
+        activiityIndicator.startAnimating()
         setUpTableView()
         setupConstraints()
         loadCategories()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.title = "Категории"
     }
     
 }
@@ -37,6 +49,7 @@ extension CategoryViewController {
         NetworkDataFetcher.shared.fetchCategories { [weak self] shopingCategoriesResponse in
             self?.shopingCategoriesResponse = shopingCategoriesResponse
             self?.tableView.reloadData()
+            self?.activiityIndicator.stopAnimating()
         }
     }
 }
@@ -74,14 +87,12 @@ extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCellTableViewCell.reuseId) as! CategoryCellTableViewCell
         if let shopingCategories = shopingCategoriesResponse?.shopingCategories,
             let shopingCategory = shopingCategories[indexPath.row],
-            let stringImageUrl = shopingCategory.image,
-            let stringIconUrl = shopingCategory.iconImage  {
+            let stringImageUrl = shopingCategory.image {
             if stringImageUrl != "" {
                 let imageURL = URL (string: APIref.urlString + stringImageUrl)
                 cell.catImage.sd_setImage(with: imageURL)
             } else {
-                let imageURL = URL (string: APIref.urlString + stringIconUrl)
-                cell.catImage.sd_setImage(with: imageURL)
+                cell.catImage.image = UIImage(named: "defaultcatimage")
             }
             cell.catNameLabel.text = shopingCategory.name
         }
@@ -116,6 +127,8 @@ extension CategoryViewController {
     
     private func setupConstraints() {
         self.view.addSubview(tableView)
+        self.view.addSubview(activiityIndicator)
+        activiityIndicator.center = self.view.center
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true

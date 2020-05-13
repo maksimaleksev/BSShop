@@ -33,11 +33,26 @@ class SubcategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = subCatViewControllerTitle
+        setupNavigationBar()
         setUpTableView()
         setupConstraints()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
+    
+}
+
+//MARK: - Setup navigation bar
+
+extension  SubcategoryViewController {
+    private func setupNavigationBar() {
+        self.navigationItem.title = subCatViewControllerTitle
+        self.navigationController?.navigationBar.topItem?.title = ""
+        
+    }
 }
 
 //MARK: - Setup Table View
@@ -49,7 +64,7 @@ extension SubcategoryViewController {
         tableView.tableFooterView = UIView()
         self.tableView.register(CategoryCellTableViewCell.self, forCellReuseIdentifier: CategoryCellTableViewCell.reuseId)
     }
-
+    
 }
 
 //MARK: - Navigate to ProductListViewController
@@ -59,7 +74,7 @@ extension SubcategoryViewController {
         let productListVC = ProductListViewController(shoppingProductsId: shoppingProductsId, titleProductList: title)
         self.navigationController?.pushViewController(productListVC, animated: true)
     }
-
+    
 }
 
 //MARK:- UITableViewDelegate, UITableViewDataSouce
@@ -71,9 +86,11 @@ extension SubcategoryViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCellTableViewCell.reuseId) as! CategoryCellTableViewCell
-        if let iconImage = shoppingSubCategoriesData[indexPath.row].iconImage {
+        if let iconImage = shoppingSubCategoriesData[indexPath.row].iconImage, iconImage != "" {
             let imgUrlString = APIref.urlString + iconImage
             cell.catImage.sd_setImage(with: URL(string: imgUrlString))
+        } else {
+            cell.catImage.image = UIImage(named: "defaultcatimage")
         }
         cell.catNameLabel.text = shoppingSubCategoriesData[indexPath.row].name
         return cell

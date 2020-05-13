@@ -9,8 +9,5 @@
 import Foundation
 
 struct APIref  {
-    
-    static let scheme = "https"
-    static let host = "blackstarshop.ru"
     static let urlString = "https://blackstarshop.ru/"
 }

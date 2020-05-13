@@ -16,6 +16,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     var productDescriptionLabel: UILabel = UILabel(text: "Description", font: UIFont.sfProDisplay11(), textColor: .customGrey())
     var productImageView: UIImageView = {
         let productImageView = UIImageView()
+        productImageView.contentMode = .scaleAspectFit
         return productImageView
     }()
     var priceLabel = UILabel(text: "", font: UIFont.sfProDisplay16())

@@ -10,12 +10,16 @@ import Foundation
 
 struct ShoppingProductsResponse: Decodable {
     var name: String
+    var englishName: String
     var sortOrder: String?
     var description: String?
     var mainImage: String?
     var productImages: [ShoppingProductsImages]
     var offers: [ShoppingProductsOffer]
     var price: String?
+    var priceUnwarped: String? {
+        return String(price?.split(separator: ".") [0] ?? "") + "₽"
+    }
 }
 
 
