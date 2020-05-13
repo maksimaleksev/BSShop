@@ -124,7 +124,7 @@ struct ShoppingCategory: Decodable {
 }
 
 struct ShoppingSubCategoties: Decodable {
-    var id: Int?
+    var id: String?
     var iconImage: String?
     var sortOrder: Int?
     var name: String?
@@ -140,8 +140,7 @@ struct ShoppingSubCategoties: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let id = try? container.decode(String.self, forKey: .id)
-        self.id = Int (id ?? "")
+        self.id = try? container.decode(String.self, forKey: .id)
         self.iconImage = try? container.decode(String.self, forKey: .iconImage)
         let sortOrder = try? container.decode(String.self, forKey: .sortOrder)
         self.sortOrder = Int(sortOrder ?? "")

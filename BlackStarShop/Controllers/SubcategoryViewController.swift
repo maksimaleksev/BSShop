@@ -52,6 +52,16 @@ extension SubcategoryViewController {
 
 }
 
+//MARK: - Navigate to ProductListViewController
+
+extension SubcategoryViewController {
+    private func goTopProductListVC (with shoppingProductsId: String, and title: String) {
+        let productListVC = ProductListViewController(shoppingProductsId: shoppingProductsId, titleProductList: title)
+        self.navigationController?.pushViewController(productListVC, animated: true)
+    }
+
+}
+
 //MARK:- UITableViewDelegate, UITableViewDataSouce
 
 extension SubcategoryViewController: UITableViewDelegate, UITableViewDataSource {
@@ -71,6 +81,13 @@ extension SubcategoryViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let id = shoppingSubCategoriesData[indexPath.row].id,
+            let title = shoppingSubCategoriesData[indexPath.row].name
+            else { return }
+        goTopProductListVC(with: id, and: title)
     }
 }
 

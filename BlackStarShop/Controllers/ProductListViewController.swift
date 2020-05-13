@@ -12,24 +12,37 @@ import SwiftUI
 class ProductListViewController: UIViewController {
     
     private var productList: [Product] = [Product(productName: "Mafia BS",
-                                          productDescription: "Description",
-                                          price: "5900 ₽",
-                                          productSize: "XL",
-                                          productColor: "black",
-                                          productImage: "mafiaBS"),
-                                  Product(productName: "Aspen Gold", productDescription: "Description",
-                                          price: "2500 ₽",
-                                          productSize: "",
-                                          productColor: "",
-                                          productImage: "aspenGold"),
-                                  Product(productName: "Gothic Wings", productDescription: "Descripiotn",
-                                          price: "3500 ₽",
-                                          productSize: "", productColor: "", productImage: "gothicWings"),
-                                  Product(productName: "BlackStar Collection",
-                                          productDescription: "Description",
-                                          price: "3500 ₽",
-                                          productSize: "", productColor: "", productImage: "blackStarCollection")
+                                                  productDescription: "Description",
+                                                  price: "5900 ₽",
+                                                  productSize: "XL",
+                                                  productColor: "black",
+                                                  productImage: "mafiaBS"),
+                                          Product(productName: "Aspen Gold", productDescription: "Description",
+                                                  price: "2500 ₽",
+                                                  productSize: "",
+                                                  productColor: "",
+                                                  productImage: "aspenGold"),
+                                          Product(productName: "Gothic Wings", productDescription: "Descripiotn",
+                                                  price: "3500 ₽",
+                                                  productSize: "", productColor: "", productImage: "gothicWings"),
+                                          Product(productName: "BlackStar Collection",
+                                                  productDescription: "Description",
+                                                  price: "3500 ₽",
+                                                  productSize: "", productColor: "", productImage: "blackStarCollection")
     ]
+    
+    private var shoppingProductsId: String
+    private var titleProductList: String
+    
+    init(shoppingProductsId: String, titleProductList: String) {
+        self.shoppingProductsId = shoppingProductsId
+        self.titleProductList = titleProductList
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -42,19 +55,34 @@ class ProductListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        self.navigationItem.title = "Список товаров"
+        self.navigationItem.title = titleProductList
         setupCollectionView()
         setupConstraints()
+        loadProductList()
     }
     
-    func setupCollectionView() {
-        
+}
+
+// MARK: - Load data for Product List VC
+
+extension ProductListViewController {
+    func loadProductList () {
+        NetworkDataFetcher.shared.fetchShoppingProducts(from: shoppingProductsId) { (productListResponse) in
+            print(productListResponse)
+        }
+    }
+}
+
+
+//MARK:- Setup Collection View
+ 
+extension ProductListViewController {
+    private func setupCollectionView() {
         self.view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(ProductCollectionViewCell.self, forCellWithReuseIdentifier: ProductCollectionViewCell.reuseId)
         collectionView.backgroundColor = .clear
-        
     }
     
 }
@@ -98,25 +126,3 @@ extension ProductListViewController {
     }
 }
 
-//MARK: - For Canvas prewiew (SwiftUI)
-
-struct ProductListVCProvider: PreviewProvider {
-    
-    static var previews: some View {
-        ContainerView().edgesIgnoringSafeArea(.all)
-    }
-    
-    struct ContainerView: UIViewControllerRepresentable {
-        
-        let viewController = ProductListViewController()
-        
-        func makeUIViewController(context: UIViewControllerRepresentableContext<ProductListVCProvider.ContainerView>) -> ProductListViewController {
-            return viewController
-        }
-        
-        func updateUIViewController(_ uiViewController: ProductListVCProvider.ContainerView.UIViewControllerType, context: UIViewControllerRepresentableContext<ProductListVCProvider.ContainerView>) {
-            
-        }
-    }
-    
-}
