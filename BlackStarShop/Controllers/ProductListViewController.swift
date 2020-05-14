@@ -61,6 +61,7 @@ class ProductListViewController: UIViewController {
 
 extension ProductListViewController {
     private func setupNavigationBar() {
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.title = titleProductList
         self.navigationController?.navigationBar.topItem?.title = ""
     }
@@ -72,11 +73,17 @@ extension ProductListViewController {
 extension ProductListViewController {
     func loadProductList () {
         NetworkDataFetcher.shared.fetchShoppingProducts(from: shoppingProductsId) {[weak self] (productListResponse) in
-            
+            var shoppingUnsortedList:[ShoppingProductsResponse] = []
             if let productListResponse = productListResponse {
                 for ( _, value) in productListResponse {
-                    self?.shoppingProductsList.append(value)
+                    shoppingUnsortedList.append(value)
                 }
+                
+                self?.shoppingProductsList = shoppingUnsortedList.sorted { product1, product2 -> Bool in
+                    guard let sortNumber1 = product1.sortOrderInt, let sortNumber2 = product2.sortOrderInt else { return false}
+                    return sortNumber1 < sortNumber2
+                }
+                
                 self?.collectionView.reloadData()
                 self?.activiityIndicator.stopAnimating()
             }
@@ -97,6 +104,18 @@ extension ProductListViewController {
     
 }
 
+
+//MARK: - ProductCollectionViewCell Delegate
+
+extension ProductListViewController: ProductCollectionViewCellDelegate {
+    func didTapBuyButton(shoppingProduct: ShoppingProductsResponse) {
+        let productVC = ProductViewController(shoppingProduct: shoppingProduct)
+        self.navigationController?.pushViewController(productVC, animated: true)
+    }
+    
+    
+}
+
 //MARK: - Collection View Delegate and DataSource
 extension ProductListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -105,13 +124,9 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.reuseId, for: indexPath) as! ProductCollectionViewCell
-        cell.productNameLabel.text = shoppingProductsList[indexPath.row].name
-        cell.productDescriptionLabel.text = shoppingProductsList[indexPath.row].englishName
-        cell.priceLabel.text = shoppingProductsList[indexPath.row].priceUnwarped
-        if let imageString = shoppingProductsList[indexPath.row].mainImage {
-            let imageURLString = APIref.urlString + imageString
-            cell.productImageView.sd_setImage(with: URL(string: imageURLString))
-        }
+        let shoppingProductResponse = shoppingProductsList[indexPath.row]
+        cell.setProductCellValues(shoppingProductResponse: shoppingProductResponse)
+        cell.delegate = self
         return cell
     }
     
@@ -122,7 +137,7 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
 extension ProductListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat = view.frame.width/2 - 6
-        let height: CGFloat = 248
+        let height: CGFloat = view.frame.height/2
         return CGSize(width: width, height: height)
     }
 }

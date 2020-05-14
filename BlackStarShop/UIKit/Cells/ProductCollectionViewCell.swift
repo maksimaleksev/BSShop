@@ -7,16 +7,20 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ProductCollectionViewCell: UICollectionViewCell {
     
     static let reuseId = "ProductCell"
     
+    private var shoppingProduct: ShoppingProductsResponse!
+    var delegate: ProductCollectionViewCellDelegate?
+    
     var productNameLabel = UILabel(text: "Product", font: UIFont.sfProDisplay16())
     var productDescriptionLabel: UILabel = UILabel(text: "Description", font: UIFont.sfProDisplay11(), textColor: .customGrey())
     var productImageView: UIImageView = {
         let productImageView = UIImageView()
-        productImageView.contentMode = .scaleAspectFit
+        productImageView.contentMode = .scaleAspectFill
         return productImageView
     }()
     var priceLabel = UILabel(text: "", font: UIFont.sfProDisplay16())
@@ -35,6 +39,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
         backgroundColor = .white
         setupConstraints()
+        self.buyButton.addTarget(self, action: #selector(buyButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -46,7 +51,44 @@ class ProductCollectionViewCell: UICollectionViewCell {
         buyButton.layer.cornerRadius = 5
         buyButton.clipsToBounds = true
     }
+        
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+         guard isUserInteractionEnabled else { return nil }
+
+           guard !isHidden else { return nil }
+
+           guard alpha >= 0.01 else { return nil }
+
+           guard self.point(inside: point, with: event) else { return nil }
+
+
+           if self.buyButton.point(inside: convert(point, to: buyButton), with: event) {
+               return self.buyButton
+           }
+
+           return super.hitTest(point, with: event)
+    }
+    
+    @objc func buyButtonTapped() {
+        delegate?.didTapBuyButton(shoppingProduct: shoppingProduct)
+    }
 }
+
+//MARK:- set shopping product values
+
+extension ProductCollectionViewCell {
+    func setProductCellValues (shoppingProductResponse: ShoppingProductsResponse){
+        shoppingProduct = shoppingProductResponse
+        productNameLabel.text = shoppingProductResponse.name
+        productDescriptionLabel.text = shoppingProductResponse.englishName
+        priceLabel.text = shoppingProductResponse.priceUnwarped
+        if let imageString = shoppingProductResponse.mainImage {
+            let imageURLString = APIref.urlString + imageString
+            productImageView.sd_setImage(with: URL(string: imageURLString))
+        }
+    }
+}
+
 
 // MARK: - Setup Constraints
 
@@ -75,15 +117,18 @@ extension ProductCollectionViewCell {
         
         // productImageView constraint
         NSLayoutConstraint.activate([
-            productImageView.heightAnchor.constraint(equalToConstant: 168),
-            productImageView.widthAnchor.constraint(equalToConstant: 168),
+//            productImageView.heightAnchor.constraint(equalToConstant: 168),
+//            productImageView.widthAnchor.constraint(equalToConstant: 168),
             productImageView.topAnchor.constraint(equalTo: upperStackView.bottomAnchor, constant: 8),
-            productImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 6)
+            productImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 6),
+            productImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            
         ])
         
         //bottomView constraints
         
         NSLayoutConstraint.activate([
+            bottomView.topAnchor.constraint(equalTo: productImageView.bottomAnchor),
             bottomView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -4),
             bottomView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 6),
             bottomView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8)
