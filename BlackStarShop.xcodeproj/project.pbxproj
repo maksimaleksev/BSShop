@@ -42,6 +42,7 @@
 		7B6E43DE244759BC00153912 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E43DD244759BC00153912 /* UILabel+Extension.swift */; };
 		7B6E43E024475A8600153912 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E43DF24475A8600153912 /* UIFont+Extension.swift */; };
 		7B6E43E224475D1400153912 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E43E124475D1400153912 /* UIButton+Extension.swift */; };
+		7B78B6C8246E8ADE00020F11 /* ImagePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B78B6C7246E8ADE00020F11 /* ImagePageControl.swift */; };
 		7BA9BA1C246846B4004F3F2B /* ChangeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9BA1B246846B4004F3F2B /* ChangeProfileViewController.swift */; };
 		7BB4EF012457510800698FE2 /* AkzidenzGroteskPro-BoldCn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BB4EF00245750DD00698FE2 /* AkzidenzGroteskPro-BoldCn.ttf */; };
 		7BB882942450A5AC0085AB39 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8828E2450A5AC0085AB39 /* CategoryViewController.swift */; };
@@ -115,6 +116,7 @@
 		7B6E43DD244759BC00153912 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		7B6E43DF24475A8600153912 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		7B6E43E124475D1400153912 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		7B78B6C7246E8ADE00020F11 /* ImagePageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePageControl.swift; sourceTree = "<group>"; };
 		7BA9BA1B246846B4004F3F2B /* ChangeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileViewController.swift; sourceTree = "<group>"; };
 		7BB4EF00245750DD00698FE2 /* AkzidenzGroteskPro-BoldCn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AkzidenzGroteskPro-BoldCn.ttf"; sourceTree = "<group>"; };
 		7BB8828E2450A5AC0085AB39 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				7BD404572453563D0028E16F /* Cells */,
 				7B1F255B244A2BB60083C060 /* Extensions */,
 				7B1F2557244A24C90083C060 /* FormTextField.swift */,
+				7B78B6C7246E8ADE00020F11 /* ImagePageControl.swift */,
 				7BDF4A00246432190035C141 /* DelView.swift */,
 				7B3DB013244DE0DB000047EF /* AddPhotoView.swift */,
 			);
@@ -549,6 +552,7 @@
 				7B64175F246A963D00B39570 /* StorageService.swift in Sources */,
 				7B64171924584B7D00B39570 /* ProfileViewController.swift in Sources */,
 				7B641766246A99AC00B39570 /* ShopingCategoriesResponse.swift in Sources */,
+				7B78B6C8246E8ADE00020F11 /* ImagePageControl.swift in Sources */,
 				7BDF49F724642D680035C141 /* DimmPresentationController.swift in Sources */,
 				7B6417172456FA0700B39570 /* CartCell.swift in Sources */,
 				7BB8829D2450A5D60085AB39 /* CategoryCellTableViewCell.swift in Sources */,

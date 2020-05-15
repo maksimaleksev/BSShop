@@ -26,21 +26,24 @@ class ProductViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+//    let mainScreenScrollView: UIScrollView = {
+//        let scrollView = UIScrollView()
+//        scrollView.translatesAutoresizingMaskIntoConstraints = false
+//        return scrollView
+//    }()
     
-    let scrollView: UIScrollView = {
+    let imagesScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
     
-    
-    let pageControl: UIPageControl = {
-        let pageControl = UIPageControl()
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
-        pageControl.pageIndicatorTintColor = .gray
-        pageControl.currentPageIndicatorTintColor = .green
-        return pageControl
-    }()
+    let imagePageControl: ImagePageControl = {
+           let pageControl = ImagePageControl()
+           pageControl.translatesAutoresizingMaskIntoConstraints = false
+           pageControl.currentPageIndicatorTintColor = .green
+           return pageControl
+       }()
     
     let titleView: UIView = {
         let titleView = UIView()
@@ -95,7 +98,7 @@ class ProductViewController: UIViewController {
         setupValuesForUIElements()
         setupConstraints()
         pageControlSetup()
-        setupScrollView()
+        setupImagesScrollView()
         addToCartButton.addTarget(self, action: #selector(addToCartButtonPressed), for: .touchUpInside)
         
     }
@@ -107,11 +110,11 @@ class ProductViewController: UIViewController {
     
     @objc func addToCartButtonPressed() {
         
-        let child = SizesViewController(sizes: sizes)
-        child.transitioningDelegate = transition
-        child.modalPresentationStyle = .custom
+        let childView = SizesViewController(sizes: sizes)
+        childView.transitioningDelegate = transition
+        childView.modalPresentationStyle = .custom
         
-        present(child, animated: true)
+        present(childView, animated: true)
         //        navigationItem.rightBarButtonItem?.setBadge(text: "24")
     }
 }
@@ -150,12 +153,13 @@ extension ProductViewController {
 
 extension ProductViewController {
     
-    private func setupScrollView() {
+    private func setupImagesScrollView() {
         let images = shoppingProduct.productImages
-        scrollView.contentSize = CGSize (width: scrollView.frame.size.width * CGFloat(images.count), height: scrollView.frame.size.height)
-        scrollView.delegate = self
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.contentSize.height = 1.0
+        imagesScrollView.contentSize = CGSize (width: imagesScrollView.frame.size.width * CGFloat(images.count), height: imagesScrollView.frame.size.height)
+        imagesScrollView.delegate = self
+        imagesScrollView.showsHorizontalScrollIndicator = false
+        imagesScrollView.isPagingEnabled = true
+        imagesScrollView.contentSize.height = 1.0
     }
     
 }
@@ -165,17 +169,17 @@ extension ProductViewController {
 extension ProductViewController {
     private func pageControlSetup() {
         let images = shoppingProduct.productImages
-        pageControl.numberOfPages = images.count
-        scrollView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 4 * view.frame.width/3)
+        imagePageControl.numberOfPages = images.count
+        imagesScrollView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 4 * view.frame.width/3)
         for (index, _) in images.enumerated() {
-            frame.origin.x = scrollView.frame.size.width * CGFloat(index)
-            frame.size = scrollView.frame.size
+            frame.origin.x = imagesScrollView.frame.size.width * CGFloat(index)
+            frame.size = imagesScrollView.frame.size
             guard let imageString = images[index].imageURL else { return }
             let imageURL = URL(string: APIref.urlString + imageString)
             let imageView = UIImageView(frame: frame)
             imageView.sd_setImage(with: imageURL, completed: nil)
             imageView.contentMode = .scaleAspectFill
-            scrollView.addSubview(imageView)
+            imagesScrollView.addSubview(imageView)
         }
     }
 }
@@ -184,7 +188,7 @@ extension ProductViewController {
 
 extension ProductViewController {
     private func setupConstraints() {
-        let productVCViews = [scrollView, pageControl, titleView]
+        let productVCViews = [imagesScrollView, imagePageControl, titleView]
         productVCViews.forEach { (productVCView) in
             self.view.addSubview(productVCView)
         }
@@ -206,30 +210,51 @@ extension ProductViewController {
         let titleLabelHeight = titleLabel.text?.height(withConstrainedWidth: view.frame.size.width - 8, font: UIFont.akzidenzGroteskPro36!)
         
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: -44 - topPadding),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.heightAnchor.constraint(equalToConstant: 4 * view.frame.width/3),
-            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pageControl.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -4),
-            titleView.topAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            
+            //imagesScrollView
+            
+            imagesScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: -44 - topPadding),
+            imagesScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imagesScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            imagesScrollView.heightAnchor.constraint(equalToConstant: 4 * view.frame.width/3),
+            
+            // imagePageControl
+            
+            imagePageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imagePageControl.bottomAnchor.constraint(equalTo: imagesScrollView.bottomAnchor, constant: -4),
+            
+            // titleView
+            
+            titleView.topAnchor.constraint(equalTo: imagesScrollView.bottomAnchor),
             titleView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             titleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             titleView.heightAnchor.constraint(equalToConstant: titleLabelHeight ?? 0 + 2),
+            
+            //titleLabel
+            
             titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor, constant: 1),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.widthAnchor.constraint(equalToConstant: view.frame.size.width - 8),
+            
+            //lineView
+            
             lineView.bottomAnchor.constraint(equalTo: titleView.bottomAnchor),
             lineView.leadingAnchor.constraint(equalTo: titleView.leadingAnchor, constant: 24),
             lineView.trailingAnchor.constraint(equalTo: titleView.trailingAnchor, constant: -24),
             lineView.heightAnchor.constraint(equalToConstant: 1),
+            
+            //costStackView
+            
             costStackView.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 8),
             costStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
             costStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            
+            //bottomStackView
             bottomStackView.topAnchor.constraint(equalTo: costStackView.bottomAnchor, constant: 16),
-            addToCartButton.heightAnchor.constraint(equalToConstant: 48),
             bottomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
-            bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24)
+            bottomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -24),
+            //addToCartButton
+            addToCartButton.heightAnchor.constraint(equalToConstant: 48)
         ])
     }
 }
@@ -237,9 +262,15 @@ extension ProductViewController {
 //MARK: - ScrolViewDelegate
 
 extension ProductViewController: UIScrollViewDelegate{
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let pageNumber = round(Double(scrollView.contentOffset.x / scrollView.frame.size.width))
-        pageControl.currentPage = Int(pageNumber)
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        let pageNumber = round(Double(scrollView.contentOffset.x / scrollView.frame.size.width))
+//        imagePageControl.currentPage = Int(pageNumber)
+//    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if imagesScrollView.contentSize.width > imagesScrollView.frame.width {
+            imagePageControl.currentPage = Int(round(imagesScrollView.contentOffset.x / imagesScrollView.frame.width))
+        }
     }
 }
 
