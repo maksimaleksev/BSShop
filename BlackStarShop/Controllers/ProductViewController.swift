@@ -164,8 +164,12 @@ extension ProductViewController {
     
     
     func fitSizeOfContent() {
-        let sumHeight = mainScreenScrollView.subviews.map({$0.frame.size.height}).reduce(0, {x, y in x + y})
-           mainScreenScrollView.contentSize = CGSize(width: self.frame.width, height: sumHeight)
+        
+        var contentRect = CGRect.zero
+        for view in mainScreenScrollView.subviews {
+            contentRect = contentRect.union(view.frame)
+        }
+        mainScreenScrollView.contentSize = CGSize(width: self.frame.width, height: contentRect.size.height - 50)
        }
     
 }
