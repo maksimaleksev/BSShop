@@ -20,7 +20,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     var productDescriptionLabel: UILabel = UILabel(text: "Description", font: UIFont.sfProDisplay11(), textColor: .customGrey())
     var productImageView: UIImageView = {
         let productImageView = UIImageView()
-        productImageView.contentMode = .scaleAspectFill
+        productImageView.contentMode = .scaleAspectFit
         return productImageView
     }()
     var priceLabel = UILabel(text: "", font: UIFont.sfProDisplay16())
@@ -94,7 +94,7 @@ extension ProductCollectionViewCell {
 
 extension ProductCollectionViewCell {
     
-    private func setupConstraints() {
+   private func setupConstraints() {
         setupBottomViewConstraints()
         let productCVCItems = [productNameLabel, productDescriptionLabel, productImageView, bottomView]
         productCVCItems.forEach { (item) in
@@ -117,18 +117,15 @@ extension ProductCollectionViewCell {
         
         // productImageView constraint
         NSLayoutConstraint.activate([
-//            productImageView.heightAnchor.constraint(equalToConstant: 168),
-//            productImageView.widthAnchor.constraint(equalToConstant: 168),
+            productImageView.heightAnchor.constraint(equalToConstant: 168),
+            productImageView.widthAnchor.constraint(equalToConstant: 168),
             productImageView.topAnchor.constraint(equalTo: upperStackView.bottomAnchor, constant: 8),
-            productImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 6),
-            productImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            
+            productImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 6)
         ])
         
         //bottomView constraints
         
         NSLayoutConstraint.activate([
-            bottomView.topAnchor.constraint(equalTo: productImageView.bottomAnchor),
             bottomView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -4),
             bottomView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 6),
             bottomView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8)

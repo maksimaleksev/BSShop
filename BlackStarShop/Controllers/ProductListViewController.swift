@@ -137,7 +137,7 @@ extension ProductListViewController: UICollectionViewDelegate, UICollectionViewD
 extension ProductListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat = view.frame.width/2 - 6
-        let height: CGFloat = view.frame.height/2
+        let height: CGFloat = 248
         return CGSize(width: width, height: height)
     }
 }
