@@ -18,13 +18,13 @@ class CartViewController: UIViewController {
                                                    productColor: "Вlack",
                                                    productImage: "mafiaBS")]
     
-    let totalAmountView: UIView = {
+    private let totalAmountView: UIView = {
         let totalAmountView = UIView()
         totalAmountView.translatesAutoresizingMaskIntoConstraints = false
         return totalAmountView
     }()
     
-    let totalAmountLabel: UILabel = {
+    private let totalAmountLabel: UILabel = {
         let totalLabel = UILabel()
         totalLabel.text = "Итого:"
         totalLabel.textColor = .black
@@ -33,7 +33,7 @@ class CartViewController: UIViewController {
         return totalLabel
     }()
     
-    var summLabel: UILabel = {
+    private var summLabel: UILabel = {
         let summLabel = UILabel()
         summLabel.text = "0 руб."
         summLabel.font = .sfProDisplay16()
@@ -42,24 +42,24 @@ class CartViewController: UIViewController {
         return summLabel
     }()
     
-    let totalAmountLineView: UIView = {
+    private let totalAmountLineView: UIView = {
         let totalAmountLineView = UIView()
         totalAmountLineView.backgroundColor = .customGrey()
         totalAmountLineView.translatesAutoresizingMaskIntoConstraints = false
         return totalAmountLineView
     }()
     
-    let bottomButtonView: UIView = {
+    private let bottomButtonView: UIView = {
         let bottomButtonView = UIView()
         bottomButtonView.translatesAutoresizingMaskIntoConstraints = false
         return bottomButtonView
     }()
     
-    let createOrderButton = UIButton(title: "Оформить заказ",
+    private let createOrderButton = UIButton(title: "Оформить заказ",
                                      backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
                                      font: .sfProDisplay15, cornerRadius: 24)
     
-    var tableView: UITableView = {
+    private var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
@@ -117,7 +117,7 @@ class CartViewController: UIViewController {
         })
     }
     
-    @objc func delAll() {
+    @objc private func delAll() {
         callDeleteAlert()
     }
     

@@ -34,26 +34,26 @@ class ProductViewController: UIViewController {
         return scrollView
     }()
     
-    let imagesScrollView: UIScrollView = {
+    private let imagesScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
     
-    let imagePageControl: ImagePageControl = {
+    private let imagePageControl: ImagePageControl = {
         let pageControl = ImagePageControl()
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         pageControl.currentPageIndicatorTintColor = .green
         return pageControl
     }()
     
-    let titleView: UIView = {
+    private let titleView: UIView = {
         let titleView = UIView()
         titleView.translatesAutoresizingMaskIntoConstraints = false
         return titleView
     }()
     
-    var titleLabel: UILabel = {
+    private var titleLabel: UILabel = {
         let titleLabel = UILabel()
         titleLabel.font = .akzidenzGroteskPro36
         titleLabel.textAlignment = .center
@@ -62,15 +62,15 @@ class ProductViewController: UIViewController {
         return titleLabel
     }()
     
-    let lineView: UIView = {
+    private let lineView: UIView = {
         let totalAmountLineView = UIView()
         totalAmountLineView.backgroundColor = .customGrey()
         totalAmountLineView.translatesAutoresizingMaskIntoConstraints = false
         return totalAmountLineView
     }()
     
-    let costLabel = UILabel(text: "Стоимость:", font: .helvetica16)
-    var costValueLabel: UILabel = {
+    private let costLabel = UILabel(text: "Стоимость:", font: .helvetica16)
+    private var costValueLabel: UILabel = {
         let costValueLabel = UILabel()
         costValueLabel.font = .helveticaBold16
         costValueLabel.textColor = .gray
@@ -78,11 +78,11 @@ class ProductViewController: UIViewController {
         return costValueLabel
     }()
     
-    let addToCartButton = UIButton(title: "добавить в корзину".uppercased(),
+    private let addToCartButton = UIButton(title: "добавить в корзину".uppercased(),
                                    backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
                                    font: .sfProDisplay15, cornerRadius: 10)
     
-    var aboutProductLabel: UILabel = {
+    private var aboutProductLabel: UILabel = {
         let aboutProductLabel = UILabel()
         aboutProductLabel.font = .roboto16
         aboutProductLabel.textAlignment = .left
@@ -114,9 +114,9 @@ class ProductViewController: UIViewController {
         fitSizeOfContent()
     }
     
-    @objc func addToCartButtonPressed() {
+    @objc private func addToCartButtonPressed() {
         
-        let childView = SizesViewController(sizes: sizes)
+        let childView = SizesViewController(shoppingProduct: shoppingProduct)
         childView.transitioningDelegate = transition
         childView.modalPresentationStyle = .custom
         
@@ -128,7 +128,7 @@ class ProductViewController: UIViewController {
 // MARK: - Setup values for UI elements
 
 extension ProductViewController {
-    func setupValuesForUIElements () {
+    private func setupValuesForUIElements () {
         titleLabel.text = shoppingProduct.name
         costValueLabel.text = shoppingProduct.priceUnwarped
         aboutProductLabel.text = shoppingProduct.description

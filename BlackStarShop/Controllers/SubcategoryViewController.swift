@@ -25,7 +25,7 @@ class SubcategoryViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var tableView: UITableView = {
+    private var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView

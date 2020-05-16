@@ -13,17 +13,17 @@ import SDWebImage
 
 class SetupProfileViewController: UIViewController {
     
-    let createProfileLabel = UILabel(text: "Создайте профиль", font: .sfProDisplay18, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
-    let profileImageView = AddPhotoView()
-    let nameLabel = UILabel(text: "Имя:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
-    let nameTextField = FormTextField(font: .sfProDisplay15)
-    let secondNameLabel = UILabel(text: "Фамилия:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
-    let secondNameTextField = FormTextField(font: .sfProDisplay15)
-    let cityLabel = UILabel(text: "Город:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
-    let cityTextField = FormTextField(font: .sfProDisplay15)
-    let addressLabel = UILabel(text: "Адрес:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
-    let addressTextField = FormTextField(font: .sfProDisplay15)
-    let createProfileButton = UIButton(title: "Создать профиль",
+    private let createProfileLabel = UILabel(text: "Создайте профиль", font: .sfProDisplay18, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    private let profileImageView = AddPhotoView()
+    private let nameLabel = UILabel(text: "Имя:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    private let nameTextField = FormTextField(font: .sfProDisplay15)
+    private let secondNameLabel = UILabel(text: "Фамилия:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    private let secondNameTextField = FormTextField(font: .sfProDisplay15)
+    private let cityLabel = UILabel(text: "Город:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    private let cityTextField = FormTextField(font: .sfProDisplay15)
+    private let addressLabel = UILabel(text: "Адрес:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    private let addressTextField = FormTextField(font: .sfProDisplay15)
+    private let createProfileButton = UIButton(title: "Создать профиль",
                                        backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
                                        font: .sfProDisplay15, cornerRadius: 24)
     
@@ -85,7 +85,7 @@ class SetupProfileViewController: UIViewController {
 
 extension SetupProfileViewController {
     
-    func setupConstraints() {
+    private func setupConstraints() {
         
         let stackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField, secondNameLabel, secondNameTextField, cityLabel, cityTextField, addressLabel, addressTextField], axis: .vertical, spacing: 8)
         let loginVCElements = [createProfileLabel, stackView, profileImageView, createProfileButton]
@@ -122,7 +122,7 @@ extension SetupProfileViewController {
 
 // MARK: - UIImagePickerControllerDelegate
 extension SetupProfileViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         profileImageView.circleImageView.image = image

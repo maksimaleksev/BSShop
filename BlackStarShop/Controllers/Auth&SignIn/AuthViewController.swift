@@ -11,14 +11,14 @@ import SwiftUI
 
 class AuthViewController: UIViewController {
     
-    let logoLabel = UILabel(text: "Black Star Wear", font: .akzidenzGroteskPro40)
-    let loginButton = UIButton(title: "Войти в магазин",
+    private let logoLabel = UILabel(text: "Black Star Wear", font: .akzidenzGroteskPro40)
+    private let loginButton = UIButton(title: "Войти в магазин",
                                backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1),
                                titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
                                font: .sfProDisplay15,
                                cornerRadius: 24)
-    let orLabel = UILabel(text: "или", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
-    let signUpButton = UIButton(title: "Зарегистрироваться",
+    private let orLabel = UILabel(text: "или", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    private let signUpButton = UIButton(title: "Зарегистрироваться",
                                 backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
                                 font: .sfProDisplay15, cornerRadius: 24)
     
@@ -33,11 +33,11 @@ class AuthViewController: UIViewController {
         signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
     }
     
-    @objc func loginButtonTapped() {
+    @objc private func loginButtonTapped() {
         present(loginVC, animated: true, completion: nil)
     }
     
-    @objc func signUpButtonTapped() {
+    @objc private func signUpButtonTapped() {
         present(signUpVC, animated: true, completion: nil)
     }
 }

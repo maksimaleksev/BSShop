@@ -14,13 +14,13 @@ class CategoryViewController: UIViewController {
     
     private var shopingCategoriesResponse: ShopingCategoriesResponse?
     
-    var tableView: UITableView = {
+    private var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
-    let activiityIndicator: UIActivityIndicatorView = {
+    private let activiityIndicator: UIActivityIndicatorView = {
         let activiityIndicator = UIActivityIndicatorView()
         activiityIndicator.hidesWhenStopped = true
         activiityIndicator.style = .medium

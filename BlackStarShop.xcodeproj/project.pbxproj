@@ -54,6 +54,7 @@
 		7BC6D7732466CE6A0046B472 /* MUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC6D7722466CE6A0046B472 /* MUser.swift */; };
 		7BC6D7752466D2C40046B472 /* FireStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC6D7742466D2C40046B472 /* FireStoreService.swift */; };
 		7BC6D77B2466E4D10046B472 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC6D77A2466E4D10046B472 /* UIImage+Extension.swift */; };
+		7BCBD4732470254300058CDC /* SizesViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BCBD4722470254300058CDC /* SizesViewControllerDelegate.swift */; };
 		7BD40456245356300028E16F /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BD40455245356300028E16F /* ProductCollectionViewCell.swift */; };
 		7BD4045A245452580028E16F /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BD4045924544F720028E16F /* Roboto-Bold.ttf */; };
 		7BD4045D245455420028E16F /* SFProDisplay-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BD4045C245455250028E16F /* SFProDisplay-Semibold.ttf */; };
@@ -128,6 +129,7 @@
 		7BC6D7722466CE6A0046B472 /* MUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUser.swift; sourceTree = "<group>"; };
 		7BC6D7742466D2C40046B472 /* FireStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreService.swift; sourceTree = "<group>"; };
 		7BC6D77A2466E4D10046B472 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		7BCBD4722470254300058CDC /* SizesViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesViewControllerDelegate.swift; sourceTree = "<group>"; };
 		7BD40455245356300028E16F /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		7BD4045924544F720028E16F /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		7BD4045B245455250028E16F /* SFProDisplay-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFProDisplay-Medium.ttf"; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				7B403F45246DB1DA009D96BC /* ProductCollectionViewCellDelegate.swift */,
+				7BCBD4722470254300058CDC /* SizesViewControllerDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				7B5F705224658B2A00612738 /* Validators.swift in Sources */,
 				7B454B292451EDD80054E1CA /* SubcategoryViewController.swift in Sources */,
 				7BB882942450A5AC0085AB39 /* CategoryViewController.swift in Sources */,
+				7BCBD4732470254300058CDC /* SizesViewControllerDelegate.swift in Sources */,
 				7B6E43DE244759BC00153912 /* UILabel+Extension.swift in Sources */,
 				7B5F705624658EF600612738 /* UIViewController+Extension.swift in Sources */,
 				7BC6D7732466CE6A0046B472 /* MUser.swift in Sources */,

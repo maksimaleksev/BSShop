@@ -11,16 +11,16 @@ import SwiftUI
 
 class LoginViewController: UIViewController {
     
-    let logoLabel = UILabel(text: "Black Star Wear", font: .akzidenzGroteskPro40)
-    let emailLabel = UILabel(text: "E-mail:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
-    let emailTextField = FormTextField(font: .sfProDisplay15)
-    let passwordLabel = UILabel(text: "Пароль:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
-    let passwordTextField: FormTextField = {
+    private let logoLabel = UILabel(text: "Black Star Wear", font: .akzidenzGroteskPro40)
+    private let emailLabel = UILabel(text: "E-mail:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    private let emailTextField = FormTextField(font: .sfProDisplay15)
+    private let passwordLabel = UILabel(text: "Пароль:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    private let passwordTextField: FormTextField = {
         let passwordTextfield = FormTextField(font: .sfProDisplay15)
         passwordTextfield.isSecureTextEntry = true
         return passwordTextfield
     }()
-    let loginButton = UIButton(title: "Войти",
+    private let loginButton = UIButton(title: "Войти",
                                backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
                                font: .sfProDisplay15, cornerRadius: 24)
     
@@ -66,7 +66,7 @@ class LoginViewController: UIViewController {
 //MARK: - Setup constraints
 
 extension LoginViewController {
-    func setupConstraints() {
+    private func setupConstraints() {
         
         let stackView = UIStackView(arrangedSubviews: [emailLabel, emailTextField, passwordLabel, passwordTextField], axis: .vertical, spacing: 18)
         let loginVCElements = [logoLabel, stackView, loginButton]

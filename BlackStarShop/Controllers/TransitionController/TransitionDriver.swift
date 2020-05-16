@@ -8,8 +8,6 @@
 
 import UIKit
 
-import UIKit
-
 class TransitionDriver: UIPercentDrivenInteractiveTransition {
     
     // MARK: - Linking

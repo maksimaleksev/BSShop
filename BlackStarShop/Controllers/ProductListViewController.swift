@@ -26,7 +26,7 @@ class ProductListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var collectionView: UICollectionView = {
+    private var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         layout.scrollDirection = .vertical
@@ -71,7 +71,7 @@ extension ProductListViewController {
 // MARK: - Load data for Product List VC
 
 extension ProductListViewController {
-    func loadProductList () {
+   private func loadProductList () {
         NetworkDataFetcher.shared.fetchShoppingProducts(from: shoppingProductsId) {[weak self] (productListResponse) in
             var shoppingUnsortedList:[ShoppingProductsResponse] = []
             if let productListResponse = productListResponse {

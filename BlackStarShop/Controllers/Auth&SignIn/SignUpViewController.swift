@@ -11,23 +11,23 @@ import SwiftUI
 
 class SignUpViewController: UIViewController {
     
-    let logoLabel = UILabel(text: "Black Star Wear", font: .akzidenzGroteskPro40)
-    let emailLabel = UILabel(text: "E-mail:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
-    let emailTextField = FormTextField(font: .sfProDisplay15)
-    let passwordLabel = UILabel(text: "Пароль:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
-    let passwordTextField: FormTextField = {
+    private let logoLabel = UILabel(text: "Black Star Wear", font: .akzidenzGroteskPro40)
+    private let emailLabel = UILabel(text: "E-mail:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    private let emailTextField = FormTextField(font: .sfProDisplay15)
+    private let passwordLabel = UILabel(text: "Пароль:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    private let passwordTextField: FormTextField = {
         let passwordTextfield = FormTextField(font: .sfProDisplay15)
         passwordTextfield.isSecureTextEntry = true
         return passwordTextfield
     }()
-    let passwordReplyLabel = UILabel(text: "Повторите пароль:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
-    let passwordReplyTextField: FormTextField = {
+    private let passwordReplyLabel = UILabel(text: "Повторите пароль:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
+    private let passwordReplyTextField: FormTextField = {
         let passwordTextfield = FormTextField(font: .sfProDisplay15)
         passwordTextfield.isSecureTextEntry = true
         return passwordTextfield
     }()
     
-    let signUpButton = UIButton(title: "Зарегистрироваться",
+    private let signUpButton = UIButton(title: "Зарегистрироваться",
                                 backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
                                 font: .sfProDisplay15, cornerRadius: 24)
     
