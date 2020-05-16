@@ -17,6 +17,7 @@ struct ShoppingProductsResponse: Decodable {
     var productImages: [ShoppingProductsImages]
     var offers: [ShoppingProductsOffer]
     var price: String?
+    var colorName: String?
     var priceUnwarped: String? {
         return String(price?.split(separator: ".") [0] ?? "") + "₽"
     }

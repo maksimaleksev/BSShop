@@ -14,7 +14,7 @@ class ProductCollectionViewCell: UICollectionViewCell {
     static let reuseId = "ProductCell"
     
     private var shoppingProduct: ShoppingProductsResponse!
-    var delegate: ProductCollectionViewCellDelegate?
+    weak var delegate: ProductCollectionViewCellDelegate?
     
     var productNameLabel = UILabel(text: "Product", font: UIFont.sfProDisplay16())
     var productDescriptionLabel: UILabel = UILabel(text: "Description", font: UIFont.sfProDisplay11(), textColor: .customGrey())

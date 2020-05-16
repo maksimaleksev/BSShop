@@ -1,5 +1,5 @@
 //
-//  SizesViewControllerDelegate.swift
+//  CartCellDelegate.swift
 //  BlackStarShop
 //
 //  Created by Maxim Alekseev on 16.05.2020.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol SizesViewControllerDelegate: class {
-    func setCellCount(to value: Int)
+protocol CartCellDelegate: class {
+    func delCellData (data: CartModel)
 }

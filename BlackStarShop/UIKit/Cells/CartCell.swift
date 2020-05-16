@@ -7,13 +7,19 @@
 //
 
 import UIKit
+import SDWebImage
 
 class CartCell: UITableViewCell {
 
     static let reuseId = "CartCell"
     
-    var itemImage: UIImageView = {
+    private var cellData: CartModel!
+    
+    weak var delegate: CartCellDelegate?
+    
+    private var itemImage: UIImageView = {
         let itemImage = UIImageView()
+        itemImage.contentMode = .scaleAspectFit
         return itemImage
     }()
     
@@ -24,21 +30,44 @@ class CartCell: UITableViewCell {
         return trashButton
     }()
     
-    var itemLabel = UILabel(text: "", font: .sfProDisplay16())
-    var sizeLabel = UILabel(text: "Размер:", font: .sfProDisplay11(), textColor: .customGrey())
-    var colorLabel = UILabel(text: "Цвет:", font: .sfProDisplay11(), textColor: .customGrey())
-    var priceLabel = UILabel(text: "", font: .sfProDisplay16())
+    private var itemLabel = UILabel(text: "", font: .sfProDisplay16())
+    private var sizeLabel = UILabel(text: "Размер:", font: .sfProDisplay11(), textColor: .customGrey())
+    private var colorLabel = UILabel(text: "Цвет:", font: .sfProDisplay11(), textColor: .customGrey())
+    private var priceLabel = UILabel(text: "", font: .sfProDisplay16())
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupConstraints()
+        trashButton.addTarget(self, action: #selector(trashButtonTapped), for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
+    @objc private func trashButtonTapped() {
+        
+        delegate?.delCellData(data: cellData)
+    }
+    
 }
+
+//MARK: - Set Cell Data
+
+extension CartCell {
+    func setCellData(data: CartModel) {
+        cellData = data
+        if let imageURLString = data.productImage {
+            let imageURL = URL(string: APIref.urlString + imageURLString)
+            itemImage.sd_setImage(with: imageURL)
+
+        }
+        sizeLabel.text = "Размер: " + data.productSize
+        colorLabel.text = "Цвет: " + data.productColor
+        priceLabel.text = data.price
+    }
+}
+
 
 //MARK: - Setup constraints
 

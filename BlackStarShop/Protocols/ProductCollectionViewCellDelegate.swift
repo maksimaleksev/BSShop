@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol ProductCollectionViewCellDelegate {
+protocol ProductCollectionViewCellDelegate: class {
     func didTapBuyButton (shoppingProduct: ShoppingProductsResponse)
 }

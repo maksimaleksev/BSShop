@@ -8,15 +8,11 @@
 
 import UIKit
 import SwiftUI
+import RealmSwift
 
 class CartViewController: UIViewController {
     
-    private let cartProducts: [Product] = [Product(productName: "Mafia BS",
-                                                   productDescription: "Description",
-                                                   price: "5900",
-                                                   productSize: "XL",
-                                                   productColor: "Вlack",
-                                                   productImage: "mafiaBS")]
+    private var cartProducts: Results<CartModel>! = nil
     
     private let totalAmountView: UIView = {
         let totalAmountView = UIView()
@@ -56,8 +52,8 @@ class CartViewController: UIViewController {
     }()
     
     private let createOrderButton = UIButton(title: "Оформить заказ",
-                                     backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
-                                     font: .sfProDisplay15, cornerRadius: 24)
+                                             backgroundColor: #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1), titleColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0),
+                                             font: .sfProDisplay15, cornerRadius: 24)
     
     private var tableView: UITableView = {
         let tableView = UITableView()
@@ -77,11 +73,18 @@ class CartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cartProducts = RealmDataService.shared.loadObjects()
         view.backgroundColor = .white
         setUpTableView()
         setupConstraints()
         setNavigationBarItems()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        cartProducts = RealmDataService.shared.loadObjects()
+        tableView.reloadData()
     }
     
     private func setUpTableView() {
@@ -98,7 +101,7 @@ class CartViewController: UIViewController {
         navigationItem.leftBarButtonItem = leftBarButtonItem
     }
     
-    func callDeleteAlert() {
+    private func callDeleteAlert() {
         self.view.addSubview(backgroundForSizeView)
         self.view.addSubview(delView)
         delView.layer.opacity = 1
@@ -118,8 +121,19 @@ class CartViewController: UIViewController {
     }
     
     @objc private func delAll() {
-        callDeleteAlert()
+        
     }
+    
+}
+
+//MARK: - CartCell Delegate
+
+extension CartViewController: CartCellDelegate {
+    func delCellData(data: CartModel) {
+        RealmDataService.shared.delObject(object: data)
+        tableView.reloadData()
+    }
+    
     
 }
 
@@ -134,11 +148,9 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CartCell.reuseId) as! CartCell
-        cell.itemImage.image = UIImage(named: cartProducts[indexPath.row].productImage)
-        cell.itemLabel.text = cartProducts[indexPath.row].productName
-        cell.colorLabel.text = "Цвет: " + cartProducts[indexPath.row].productColor
-        cell.sizeLabel.text = "Размер: " + cartProducts[indexPath.row].productSize
-        cell.priceLabel.text = cartProducts[indexPath.row].price + " руб."
+        let cellData = cartProducts[indexPath.row]
+        cell.setCellData(data: cellData)
+        cell.delegate = self
         return cell
     }
     
