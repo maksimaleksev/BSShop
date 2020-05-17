@@ -13,7 +13,6 @@ import SwiftUI
 class ProductViewController: UIViewController {
     
     private var frame = CGRect(x: 0, y: 0, width: 0, height: 0)
-    private let sizes = ["XL", "L", "M", "S"]
     
     private var shoppingProduct: ShoppingProductsResponse
     
@@ -191,17 +190,33 @@ extension ProductViewController {
 extension ProductViewController {
     private func pageControlSetup() {
         let images = shoppingProduct.productImages
-        imagePageControl.numberOfPages = images.count
-        imagesScrollView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 4 * view.frame.width/3)
-        for (index, _) in images.enumerated() {
-            frame.origin.x = imagesScrollView.frame.size.width * CGFloat(index)
-            frame.size = imagesScrollView.frame.size
-            guard let imageString = images[index].imageURL else { return }
+        if images.isEmpty {
+            imagePageControl.numberOfPages = 1
+            imagesScrollView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 4 * view.frame.width/3)
+            frame = imagesScrollView.frame
+            guard let imageString = shoppingProduct.mainImage else { return }
             let imageURL = URL(string: APIref.urlString + imageString)
             let imageView = UIImageView(frame: frame)
             imageView.sd_setImage(with: imageURL, completed: nil)
             imageView.contentMode = .scaleAspectFill
             imagesScrollView.addSubview(imageView)
+            imagePageControl.currentPageIndicatorTintColor = .clear
+        } else {
+            imagePageControl.numberOfPages = images.count
+            imagesScrollView.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: 4 * view.frame.width/3)
+            for (index, _) in images.enumerated() {
+                frame.origin.x = imagesScrollView.frame.size.width * CGFloat(index)
+                frame.size = imagesScrollView.frame.size
+                guard let imageString = images[index].imageURL else { return }
+                let imageURL = URL(string: APIref.urlString + imageString)
+                let imageView = UIImageView(frame: frame)
+                imageView.sd_setImage(with: imageURL, completed: nil)
+                imageView.contentMode = .scaleAspectFill
+                imagesScrollView.addSubview(imageView)
+            }
+            if images.count == 1 {
+                imagePageControl.currentPageIndicatorTintColor = .clear
+            }
         }
     }
 }
