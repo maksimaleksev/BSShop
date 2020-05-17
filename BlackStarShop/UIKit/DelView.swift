@@ -25,17 +25,37 @@ class DelView: UIView {
                                     backgroundColor: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), titleColor: .black,
                                     font: .sfProDisplay15, cornerRadius: 8)
     
+    var completion: ((Bool) -> ())!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViewElements()
         setupConstraints()
+        yesButton.addTarget(self, action: #selector(yesButtonTapped), for: .touchUpInside)
+        noButton.addTarget(self, action: #selector(noButoonTapped), for: .touchUpInside)
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc private func yesButtonTapped() {
+        completion!(true)
+    }
+    
+    @objc private func noButoonTapped() {
+        completion!(false)
+    }
+    
+    func setDelLabelText(text: String) {
+        delLabel.text = "Удалить \(text) из корзины?"
+    }
+}
+
+//MARK: - Setup View Elements
+
+extension DelView {
     
     private func setupViewElements() {
         for button in [delLabel, yesButton, noButton] {
@@ -46,9 +66,11 @@ class DelView: UIView {
         noButton.layer.borderColor = UIColor.customGrey().cgColor
         noButton.layer.borderWidth = 1
     }
+
 }
 
 
+//MARK: - Setup Constraints
 extension DelView {
     
     private func setupConstraints() {

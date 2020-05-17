@@ -81,7 +81,7 @@ extension ProductCollectionViewCell {
         shoppingProduct = shoppingProductResponse
         productNameLabel.text = shoppingProductResponse.name
         productDescriptionLabel.text = shoppingProductResponse.englishName
-        priceLabel.text = shoppingProductResponse.priceUnwarped
+        priceLabel.text = shoppingProductResponse.priceUnwarped! + "₽"
         if let imageString = shoppingProductResponse.mainImage {
             let imageURLString = APIref.urlString + imageString
             productImageView.sd_setImage(with: URL(string: imageURLString))

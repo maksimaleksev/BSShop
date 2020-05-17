@@ -130,7 +130,7 @@ class ProductViewController: UIViewController {
 extension ProductViewController {
     private func setupValuesForUIElements () {
         titleLabel.text = shoppingProduct.name
-        costValueLabel.text = shoppingProduct.priceUnwarped
+        costValueLabel.text = shoppingProduct.priceUnwarped! + "₽"
         aboutProductLabel.text = shoppingProduct.description
     }
 }
@@ -164,13 +164,11 @@ extension ProductViewController {
     
     
     func fitSizeOfContent() {
-        
-        var contentRect = CGRect.zero
-        for view in mainScreenScrollView.subviews {
-            contentRect = contentRect.union(view.frame)
-        }
-        mainScreenScrollView.contentSize = CGSize(width: self.frame.width, height: contentRect.size.height - 50)
-       }
+        mainScreenScrollView.contentSize = mainScreenScrollView.subviews
+            .reduce(CGRect.zero,{$0.union($1.frame)})
+            .size
+        mainScreenScrollView.contentSize.height -= 50
+    }
     
 }
 //MARK: - Setup imagesScrollView

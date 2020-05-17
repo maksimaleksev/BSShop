@@ -64,7 +64,7 @@ extension CartCell {
         }
         sizeLabel.text = "Размер: " + data.productSize
         colorLabel.text = "Цвет: " + data.productColor
-        priceLabel.text = data.price
+        priceLabel.text = data.price + "₽"
     }
 }
 

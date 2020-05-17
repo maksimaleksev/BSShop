@@ -19,7 +19,7 @@ struct ShoppingProductsResponse: Decodable {
     var price: String?
     var colorName: String?
     var priceUnwarped: String? {
-        return String(price?.split(separator: ".") [0] ?? "") + "₽"
+        return String(price?.split(separator: ".") [0] ?? "")
     }
     var sortOrderInt: Int? {
         guard let sortOrder = sortOrder else { return nil}

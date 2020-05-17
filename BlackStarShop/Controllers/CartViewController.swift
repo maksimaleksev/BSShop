@@ -12,7 +12,7 @@ import RealmSwift
 
 class CartViewController: UIViewController {
     
-    private var cartProducts: Results<CartModel>! = nil
+    private var cartProducts: Results<CartModel>!
     
     private let totalAmountView: UIView = {
         let totalAmountView = UIView()
@@ -31,7 +31,7 @@ class CartViewController: UIViewController {
     
     private var summLabel: UILabel = {
         let summLabel = UILabel()
-        summLabel.text = "0 руб."
+        summLabel.text = "0₽"
         summLabel.font = .sfProDisplay16()
         summLabel.textColor = .customGrey()
         summLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -85,8 +85,32 @@ class CartViewController: UIViewController {
         super.viewDidAppear(animated)
         cartProducts = RealmDataService.shared.loadObjects()
         tableView.reloadData()
+        setSummLabelData()
     }
     
+    @objc private func delAll() {
+        callDeleteAlert(with: "товары")
+        delView.completion = { [weak self] result in
+            print(result)
+            self?.dismissDelAlert()
+        }
+    }
+    
+}
+
+// MARK: - Calculating and set data for summLabel
+
+extension CartViewController {
+    private func setSummLabelData() {
+        let sum = Array(cartProducts).map { Int($0.price) ?? 0 }.reduce(0, +)
+        summLabel.text = String(sum) + "₽"
+    }
+}
+
+
+//MARK: - Set Up TableView
+
+extension CartViewController {
     private func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -94,14 +118,22 @@ class CartViewController: UIViewController {
         self.tableView.register(CartCell.self, forCellReuseIdentifier: CartCell.reuseId)
     }
     
+}
+
+//MARK: - Set Navigation Bar Items
+extension CartViewController {
     private func setNavigationBarItems() {
         navigationItem.title = "Корзина"
         let leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Close"), style: .done, target: self, action: #selector(delAll))
         leftBarButtonItem.tintColor = .customGrey()
         navigationItem.leftBarButtonItem = leftBarButtonItem
     }
-    
-    private func callDeleteAlert() {
+}
+
+//MARK: - Call and dismiss delete Alerts
+
+extension CartViewController {
+    private func callDeleteAlert(with text: String) {
         self.view.addSubview(backgroundForSizeView)
         self.view.addSubview(delView)
         delView.layer.opacity = 1
@@ -110,6 +142,7 @@ class CartViewController: UIViewController {
         delView.frame.origin = CGPoint(x: 16, y: UIScreen.main.bounds.height)
         delView.layer.cornerRadius = delView.frame.width / 16
         delView.backgroundColor = .white
+        delView.setDelLabelText(text: text)
         UIView.animate(withDuration: 0.3, animations: {
             self.delView.frame.origin = CGPoint(x: 16, y: UIScreen.main.bounds.height / 4)
             self.backgroundForSizeView.layer.opacity = 1
@@ -120,21 +153,35 @@ class CartViewController: UIViewController {
         })
     }
     
-    @objc private func delAll() {
-        
+    private func dismissDelAlert() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.delView.layer.opacity = 0
+            self.backgroundForSizeView.layer.opacity = 0
+            
+        }, completion: {
+            complete in
+            self.delView.removeFromSuperview()
+            self.backgroundForSizeView.removeFromSuperview()
+        })
     }
-    
 }
 
 //MARK: - CartCell Delegate
 
 extension CartViewController: CartCellDelegate {
     func delCellData(data: CartModel) {
-        RealmDataService.shared.delObject(object: data)
-        tableView.reloadData()
+        callDeleteAlert(with:"товар")
+        delView.completion = {[weak self] result in
+            if result {
+                RealmDataService.shared.delObject(object: data)
+                self?.dismissDelAlert()
+                self?.tableView.reloadData()
+                self?.setSummLabelData()
+            } else {
+                self?.dismissDelAlert()
+            }
+        }
     }
-    
-    
 }
 
 
