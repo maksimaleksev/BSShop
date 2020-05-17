@@ -89,10 +89,16 @@ class CartViewController: UIViewController {
     }
     
     @objc private func delAll() {
-        callDeleteAlert(with: "товары")
+        callDeleteAlert(with: "все товары")
         delView.completion = { [weak self] result in
-            print(result)
-            self?.dismissDelAlert()
+            if result {
+                RealmDataService.shared.delAllObjects()
+                self?.dismissDelAlert()
+                self?.tableView.reloadData()
+                self?.setSummLabelData()
+            } else {
+                self?.dismissDelAlert()
+            }
         }
     }
     

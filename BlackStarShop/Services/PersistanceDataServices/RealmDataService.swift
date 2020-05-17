@@ -27,6 +27,13 @@ class RealmDataService {
         }
     }
     
+    func delAllObjects() {
+        let objectsToDelete = realm.objects(CartModel.self)
+        try! realm.write {
+            objectsToDelete.forEach { realm.delete($0) }
+        }
+    }
+    
     func loadObjects() -> Results<CartModel> {
         return realm.objects(CartModel.self)
     }
