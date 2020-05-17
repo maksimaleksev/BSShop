@@ -37,9 +37,18 @@ class CategoryViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationItem.title = "Категории"
+        setUpNavigationBar()
     }
     
+}
+
+//MARK: - Setup Navigation Controller
+extension CategoryViewController {
+    private func setUpNavigationBar() {
+        self.navigationItem.title = "Категории"
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.clear.cgColor
+    }
 }
 
 //MARK: - Load data (Categories)

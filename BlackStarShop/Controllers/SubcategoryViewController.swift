@@ -51,7 +51,8 @@ extension  SubcategoryViewController {
     private func setupNavigationBar() {
         self.navigationItem.title = subCatViewControllerTitle
         self.navigationController?.navigationBar.topItem?.title = ""
-        
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.clear.cgColor
     }
 }
 

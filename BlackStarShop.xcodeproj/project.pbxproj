@@ -51,6 +51,7 @@
 		7BB882982450A5AC0085AB39 /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB882932450A5AC0085AB39 /* SetupProfileViewController.swift */; };
 		7BB8829D2450A5D60085AB39 /* CategoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8829C2450A5D60085AB39 /* CategoryCellTableViewCell.swift */; };
 		7BC4A40E24706875002279D7 /* CartCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC4A40D24706875002279D7 /* CartCellDelegate.swift */; };
+		7BC4A4122471B2CD002279D7 /* NavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC4A4112471B2CD002279D7 /* NavigationController+Extension.swift */; };
 		7BC6D7732466CE6A0046B472 /* MUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC6D7722466CE6A0046B472 /* MUser.swift */; };
 		7BC6D7752466D2C40046B472 /* FireStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC6D7742466D2C40046B472 /* FireStoreService.swift */; };
 		7BC6D77B2466E4D10046B472 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC6D77A2466E4D10046B472 /* UIImage+Extension.swift */; };
@@ -127,6 +128,7 @@
 		7BB882932450A5AC0085AB39 /* SetupProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		7BB8829C2450A5D60085AB39 /* CategoryCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCellTableViewCell.swift; sourceTree = "<group>"; };
 		7BC4A40D24706875002279D7 /* CartCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellDelegate.swift; sourceTree = "<group>"; };
+		7BC4A4112471B2CD002279D7 /* NavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationController+Extension.swift"; sourceTree = "<group>"; };
 		7BC6D7722466CE6A0046B472 /* MUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUser.swift; sourceTree = "<group>"; };
 		7BC6D7742466D2C40046B472 /* FireStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreService.swift; sourceTree = "<group>"; };
 		7BC6D77A2466E4D10046B472 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				7B1F255C244A32660083C060 /* UIStackView+Extension.swift */,
 				7B3DB015244DE6BA000047EF /* UIColor+Extension.swift */,
 				7BC6D77A2466E4D10046B472 /* UIImage+Extension.swift */,
+				7BC4A4112471B2CD002279D7 /* NavigationController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				7BC4A40E24706875002279D7 /* CartCellDelegate.swift in Sources */,
 				7BB882952450A5AC0085AB39 /* SignUpViewController.swift in Sources */,
 				7B64171B24585B6B00B39570 /* MainTabBarController.swift in Sources */,
+				7BC4A4122471B2CD002279D7 /* NavigationController+Extension.swift in Sources */,
 				7BDF49E924642CF70035C141 /* CGPoint+Velocity.swift in Sources */,
 				7BD40456245356300028E16F /* ProductCollectionViewCell.swift in Sources */,
 				7BDF4A01246432190035C141 /* DelView.swift in Sources */,

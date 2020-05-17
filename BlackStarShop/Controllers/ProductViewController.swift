@@ -147,6 +147,12 @@ extension ProductViewController {
         leftBarButtonItem.tintColor = .white
         navigationItem.rightBarButtonItem = rightBarButtonItem
         navigationItem.leftBarButtonItem = leftBarButtonItem
+//        self.navigationController?.addCustomBottomLine(color: .clear, height: 0.0)
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.gray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 4.0
+        self.navigationController?.navigationBar.layer.shadowOpacity = 1.0
+        self.navigationController?.navigationBar.layer.masksToBounds = false
     }
     
     @objc private func back(sender: UIBarButtonItem) {

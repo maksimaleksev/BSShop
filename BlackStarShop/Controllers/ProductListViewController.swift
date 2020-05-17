@@ -64,6 +64,8 @@ extension ProductListViewController {
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationItem.title = titleProductList
         self.navigationController?.navigationBar.topItem?.title = ""
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.clear.cgColor
     }
 }
 
@@ -111,6 +113,7 @@ extension ProductListViewController: ProductCollectionViewCellDelegate {
     func didTapBuyButton(shoppingProduct: ShoppingProductsResponse) {
         let productVC = ProductViewController(shoppingProduct: shoppingProduct)
         self.navigationController?.pushViewController(productVC, animated: true)
+        
     }
     
     
