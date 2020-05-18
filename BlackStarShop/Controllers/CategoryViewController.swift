@@ -38,8 +38,27 @@ class CategoryViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpNavigationBar()
+        setTabBarCartIconBadge()
     }
     
+}
+
+//MARK: - Setup Tab bar CartIconBadge
+
+extension CategoryViewController {
+    private func setTabBarCartIconBadge() {
+        let cartCount = RealmDataService.shared.loadObjects().count
+        
+        if let tabItems = tabBarController?.tabBar.items {
+            if cartCount > 0 {
+                let tabItem = tabItems[2]
+                tabItem.badgeValue = String(cartCount)
+            } else {
+                let tabItem = tabItems[2]
+                tabItem.badgeValue = nil
+            }
+        }
+    }
 }
 
 //MARK: - Setup Navigation Controller

@@ -11,25 +11,25 @@ import UIKit
 class MainTabBarController: UITabBarController {
     
     private let currentUser: MUser
-       
-       init(currentUser: MUser = MUser(name: "Unknown",
-                                       secondName: "Unknown",
-                                       city: "Unknown",
-                                       address: "Unknown",
-                                       avatarStringURL: "Unknown",
-                                       email: "Unknown",
-                                       id: "Unknown")) {
-           self.currentUser = currentUser
-           super.init(nibName: nil, bundle: nil)
-       }
-       
-       required init?(coder: NSCoder) {
-           fatalError("init(coder:) has not been implemented")
-       }
-
+    
+    init(currentUser: MUser = MUser(name: "Unknown",
+                                    secondName: "Unknown",
+                                    city: "Unknown",
+                                    address: "Unknown",
+                                    avatarStringURL: "Unknown",
+                                    email: "Unknown",
+                                    id: "Unknown")) {
+        self.currentUser = currentUser
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-            
+        
         let categoryVC = CategoryViewController()
         let profileVC = ProfileViewController(currentUser: currentUser)
         let cartVC = CartViewController()
@@ -37,20 +37,19 @@ class MainTabBarController: UITabBarController {
         let profileImage = UIImage(systemName: "person", withConfiguration: boldConfig)!
         let cartImage = UIImage(systemName: "cart", withConfiguration: boldConfig)!
         let categoryImage = UIImage(systemName: "bag", withConfiguration: boldConfig)!
-
+        
         viewControllers = [
             generateNavigationController(rootViewController: categoryVC, title: "Категории", image: categoryImage),
             generateNavigationController(rootViewController: profileVC, title: "Профиль", image: profileImage),
             generateNavigationController(rootViewController: cartVC, title: "Корзина", image: cartImage)
         ]
-        
-            }
-
+    }
+    
     private func generateNavigationController (rootViewController: UIViewController, title: String, image: UIImage) -> UIViewController {
         let navigationVC = UINavigationController(rootViewController: rootViewController)
         navigationVC.tabBarItem.title = title
         navigationVC.tabBarItem.image = image
         return navigationVC
     }
-
+    
 }

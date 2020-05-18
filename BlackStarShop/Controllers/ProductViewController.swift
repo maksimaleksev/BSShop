@@ -111,16 +111,42 @@ class ProductViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         fitSizeOfContent()
+        let cartCount = RealmDataService.shared.loadObjects().count
+        if cartCount > 0 {
+            navigationItem.rightBarButtonItem?.setBadge(text: String(cartCount))
+        }
     }
     
     @objc private func addToCartButtonPressed() {
         
-        let childView = SizesViewController(shoppingProduct: shoppingProduct)
-        childView.transitioningDelegate = transition
-        childView.modalPresentationStyle = .custom
-        
-        present(childView, animated: true)
-        //        navigationItem.rightBarButtonItem?.setBadge(text: "24")
+        let childVC = SizesViewController(shopingProductOffers: shoppingProduct.offers)
+        childVC.transitioningDelegate = transition
+        childVC.modalPresentationStyle = .custom
+        childVC.delegate = self
+        present(childVC, animated: true)
+    }
+}
+
+
+// MARK: - SizesViewControllerDelegate
+
+extension ProductViewController: SizesViewControllerDelegate {
+    func cellSizeDataSet(to value: String) {
+        let productName = shoppingProduct.name
+        guard let price = shoppingProduct.priceUnwarped,
+                    let productColor = shoppingProduct.colorName,
+                    let productImage = shoppingProduct.mainImage
+                    else { return }
+        let objectToSave = CartModel(productName: productName, price: price, productSize: value, productColor: productColor, productImage:productImage )
+                RealmDataService.shared.saveObject(object: objectToSave)
+        let cartCount = RealmDataService.shared.loadObjects().count
+        if cartCount > 0 {
+            navigationItem.rightBarButtonItem?.setBadge(text: String(cartCount))
+            if let tabItems = tabBarController?.tabBar.items {
+                let tabItem = tabItems[2]
+                tabItem.badgeValue = String(cartCount)
+            }
+        }
     }
 }
 
@@ -142,12 +168,11 @@ extension ProductViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         let leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "BackButton"), style: .plain, target: self, action: #selector(back(sender:)))
-        let rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "cart"), style: .plain, target: nil, action: nil)
+        let rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "cart"), style: .plain, target: self, action: #selector(goToCart(sender:)))
         rightBarButtonItem.tintColor = .white
         leftBarButtonItem.tintColor = .white
         navigationItem.rightBarButtonItem = rightBarButtonItem
         navigationItem.leftBarButtonItem = leftBarButtonItem
-//        self.navigationController?.addCustomBottomLine(color: .clear, height: 0.0)
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.gray.cgColor
         self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         self.navigationController?.navigationBar.layer.shadowRadius = 4.0
@@ -158,7 +183,13 @@ extension ProductViewController {
     @objc private func back(sender: UIBarButtonItem) {
         _ = navigationController?.popViewController(animated: true)
     }
+    
+    @objc private func goToCart(sender: UIBarButtonItem) {
+        let cartVC = CartViewController()
+        _ = navigationController?.pushViewController(cartVC, animated: true)
+    }
 }
+
 
 // MARK: - Setup mainScreenScrollView
 
@@ -168,7 +199,7 @@ extension ProductViewController {
     }
     
     
-    func fitSizeOfContent() {
+    private func fitSizeOfContent() {
         mainScreenScrollView.contentSize = mainScreenScrollView.subviews
             .reduce(CGRect.zero,{$0.union($1.frame)})
             .size

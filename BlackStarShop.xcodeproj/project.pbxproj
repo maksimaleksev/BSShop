@@ -51,7 +51,6 @@
 		7BB882982450A5AC0085AB39 /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB882932450A5AC0085AB39 /* SetupProfileViewController.swift */; };
 		7BB8829D2450A5D60085AB39 /* CategoryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8829C2450A5D60085AB39 /* CategoryCellTableViewCell.swift */; };
 		7BC4A40E24706875002279D7 /* CartCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC4A40D24706875002279D7 /* CartCellDelegate.swift */; };
-		7BC4A4122471B2CD002279D7 /* NavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC4A4112471B2CD002279D7 /* NavigationController+Extension.swift */; };
 		7BC6D7732466CE6A0046B472 /* MUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC6D7722466CE6A0046B472 /* MUser.swift */; };
 		7BC6D7752466D2C40046B472 /* FireStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC6D7742466D2C40046B472 /* FireStoreService.swift */; };
 		7BC6D77B2466E4D10046B472 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BC6D77A2466E4D10046B472 /* UIImage+Extension.swift */; };
@@ -75,6 +74,7 @@
 		7BDF4A01246432190035C141 /* DelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BDF4A00246432190035C141 /* DelView.swift */; };
 		7BE76B29246C2F9B00529DB7 /* ShoppingProductsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BE76B28246C2F9B00529DB7 /* ShoppingProductsResponse.swift */; };
 		7BF0664E24530A790059A1D1 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF0664D24530A790059A1D1 /* ProductListViewController.swift */; };
+		7BFEE65224726CB00027DE79 /* SizesViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BFEE65124726CB00027DE79 /* SizesViewControllerDelegate.swift */; };
 		AD3A548EAB9C37B07BF6F1F1 /* Pods_BlackStarShop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02270711790106FA20E4C8CF /* Pods_BlackStarShop.framework */; };
 /* End PBXBuildFile section */
 
@@ -128,7 +128,6 @@
 		7BB882932450A5AC0085AB39 /* SetupProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		7BB8829C2450A5D60085AB39 /* CategoryCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryCellTableViewCell.swift; sourceTree = "<group>"; };
 		7BC4A40D24706875002279D7 /* CartCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartCellDelegate.swift; sourceTree = "<group>"; };
-		7BC4A4112471B2CD002279D7 /* NavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationController+Extension.swift"; sourceTree = "<group>"; };
 		7BC6D7722466CE6A0046B472 /* MUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUser.swift; sourceTree = "<group>"; };
 		7BC6D7742466D2C40046B472 /* FireStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireStoreService.swift; sourceTree = "<group>"; };
 		7BC6D77A2466E4D10046B472 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -152,6 +151,7 @@
 		7BDF4A00246432190035C141 /* DelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelView.swift; sourceTree = "<group>"; };
 		7BE76B28246C2F9B00529DB7 /* ShoppingProductsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingProductsResponse.swift; sourceTree = "<group>"; };
 		7BF0664D24530A790059A1D1 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		7BFEE65124726CB00027DE79 /* SizesViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizesViewControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,7 +216,6 @@
 				7B1F255C244A32660083C060 /* UIStackView+Extension.swift */,
 				7B3DB015244DE6BA000047EF /* UIColor+Extension.swift */,
 				7BC6D77A2466E4D10046B472 /* UIImage+Extension.swift */,
-				7BC4A4112471B2CD002279D7 /* NavigationController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -226,6 +225,7 @@
 			children = (
 				7B403F45246DB1DA009D96BC /* ProductCollectionViewCellDelegate.swift */,
 				7BC4A40D24706875002279D7 /* CartCellDelegate.swift */,
+				7BFEE65124726CB00027DE79 /* SizesViewControllerDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -535,12 +535,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7BFEE65224726CB00027DE79 /* SizesViewControllerDelegate.swift in Sources */,
 				7BDF49FD24642DA00035C141 /* TransitionDriver.swift in Sources */,
 				7BC6D7752466D2C40046B472 /* FireStoreService.swift in Sources */,
 				7BC4A40E24706875002279D7 /* CartCellDelegate.swift in Sources */,
 				7BB882952450A5AC0085AB39 /* SignUpViewController.swift in Sources */,
 				7B64171B24585B6B00B39570 /* MainTabBarController.swift in Sources */,
-				7BC4A4122471B2CD002279D7 /* NavigationController+Extension.swift in Sources */,
 				7BDF49E924642CF70035C141 /* CGPoint+Velocity.swift in Sources */,
 				7BD40456245356300028E16F /* ProductCollectionViewCell.swift in Sources */,
 				7BDF4A01246432190035C141 /* DelView.swift in Sources */,

@@ -87,21 +87,24 @@ class CartViewController: UIViewController {
         tableView.reloadData()
         setSummLabelData()
     }
-    
-    @objc private func delAll() {
-        callDeleteAlert(with: "все товары")
-        delView.completion = { [weak self] result in
-            if result {
-                RealmDataService.shared.delAllObjects()
-                self?.dismissDelAlert()
-                self?.tableView.reloadData()
-                self?.setSummLabelData()
+        
+}
+
+// MARK: - Set Tab Bar CartIconBadge
+extension CartViewController {
+    private func setTabBarCartIconBadge() {
+        let cartCount = RealmDataService.shared.loadObjects().count
+        
+        if let tabItems = tabBarController?.tabBar.items {
+            if cartCount > 0 {
+                let tabItem = tabItems[2]
+                tabItem.badgeValue = String(cartCount)
             } else {
-                self?.dismissDelAlert()
+                let tabItem = tabItems[2]
+                tabItem.badgeValue = nil
             }
         }
     }
-    
 }
 
 // MARK: - Calculating and set data for summLabel
@@ -130,10 +133,28 @@ extension CartViewController {
 extension CartViewController {
     private func setNavigationBarItems() {
         navigationItem.title = "Корзина"
-        let leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Close"), style: .done, target: self, action: #selector(delAll))
+        let leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "Close"), style: .done, target: self, action: #selector(delAll(sender:)))
         leftBarButtonItem.tintColor = .customGrey()
         navigationItem.leftBarButtonItem = leftBarButtonItem
+        self.navigationController?.navigationBar.shadowImage = nil
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.clear.cgColor
     }
+    
+    @objc private func delAll(sender: UIBarButtonItem) {
+        callDeleteAlert(with: "все товары")
+        delView.completion = { [weak self] result in
+            if result {
+                RealmDataService.shared.delAllObjects()
+                self?.dismissDelAlert()
+                self?.tableView.reloadData()
+                self?.setSummLabelData()
+                self?.setTabBarCartIconBadge()
+            } else {
+                self?.dismissDelAlert()
+            }
+        }
+    }
+
 }
 
 //MARK: - Call and dismiss delete Alerts
@@ -183,6 +204,7 @@ extension CartViewController: CartCellDelegate {
                 self?.dismissDelAlert()
                 self?.tableView.reloadData()
                 self?.setSummLabelData()
+                self?.setTabBarCartIconBadge()
             } else {
                 self?.dismissDelAlert()
             }
