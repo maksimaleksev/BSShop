@@ -37,24 +37,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             window?.rootViewController = AuthViewController()
         }
         window?.makeKeyAndVisible()
-//        window?.rootViewController = AuthViewController()
-//        window?.rootViewController = LoginViewController()
-//        window?.rootViewController = SetupProfileViewController()
-//        let navigationController = UINavigationController()
-//        let categoryVC = CategoryViewController()
-//        let subCategoryVC = SubcategoryViewController()
-//        let productListVC = ProductListViewController()
-//        let cartVC = CartViewController()
-//        navigationController.viewControllers = [categoryVC, subCategoryVC, productListVC]
-//        let profileVC = ProfileViewController()
-//        navigationController.viewControllers = [profileVC]
-
-//        let productVC = ProductViewController()
-//                navigationController.viewControllers = [productVC]
-//                window?.rootViewController = navigationController
-//        let mainTabBarController = MainTabBarController()
-//        window?.rootViewController = mainTabBarController
-//        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
