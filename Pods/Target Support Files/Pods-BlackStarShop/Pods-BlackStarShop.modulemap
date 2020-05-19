@@ -1,0 +1,6 @@
+framework module Pods_BlackStarShop {
+  umbrella header "Pods-BlackStarShop-umbrella.h"
+
+  export *
+  module * { export * }
+}
