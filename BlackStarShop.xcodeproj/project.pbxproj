@@ -312,9 +312,9 @@
 		7BB8828F2450A5AC0085AB39 /* Auth&SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				7BB882902450A5AC0085AB39 /* SignUpViewController.swift */,
 				7BB882912450A5AC0085AB39 /* AuthViewController.swift */,
 				7BB882922450A5AC0085AB39 /* LoginViewController.swift */,
+				7BB882902450A5AC0085AB39 /* SignUpViewController.swift */,
 				7BB882932450A5AC0085AB39 /* SetupProfileViewController.swift */,
 				7BA9BA1B246846B4004F3F2B /* ChangeProfileViewController.swift */,
 				7B64171824584B7D00B39570 /* ProfileViewController.swift */,

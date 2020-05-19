@@ -13,6 +13,12 @@ import SDWebImage
 
 class SetupProfileViewController: UIViewController {
     
+    private let scrollView: UIScrollView = {
+       let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+    
     private let createProfileLabel = UILabel(text: "Создайте профиль", font: .sfProDisplay18, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
     private let profileImageView = AddPhotoView()
     private let nameLabel = UILabel(text: "Имя:", font: .sfProDisplay15, textColor: #colorLiteral(red: 0.4470588235, green: 0.4470588235, blue: 0.4470588235, alpha: 1))
@@ -47,7 +53,13 @@ class SetupProfileViewController: UIViewController {
         setupConstraints()
         createProfileButton.addTarget(self, action: #selector(createProfileButtonTapped), for: .touchUpInside)
         profileImageView.plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
+        registerForKeyboardNotifications()
+        self.hideKeyboardWhenTappedAround()
         
+    }
+    
+    deinit {
+        removeKeyboardNotifications()
     }
     
     @objc private func createProfileButtonTapped() {
@@ -86,13 +98,13 @@ class SetupProfileViewController: UIViewController {
 extension SetupProfileViewController {
     
     private func setupConstraints() {
-        
+        view.addSubview(scrollView)
         let stackView = UIStackView(arrangedSubviews: [nameLabel, nameTextField, secondNameLabel, secondNameTextField, cityLabel, cityTextField, addressLabel, addressTextField], axis: .vertical, spacing: 8)
         let loginVCElements = [createProfileLabel, stackView, profileImageView, createProfileButton]
         loginVCElements.forEach { [weak self](element) in
             if let self = self {
                 element.translatesAutoresizingMaskIntoConstraints = false
-                self.view.addSubview(element)
+                self.scrollView.addSubview(element)
             }
         }
         
@@ -105,7 +117,11 @@ extension SetupProfileViewController {
         }
         
         NSLayoutConstraint.activate([
-            createProfileLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 56),
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            createProfileLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 56),
             createProfileLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             profileImageView.topAnchor.constraint(equalTo: createProfileLabel.bottomAnchor, constant: 6),
             profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -115,7 +131,8 @@ extension SetupProfileViewController {
             createProfileButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 48),
             createProfileButton.heightAnchor.constraint(equalToConstant: 48),
             createProfileButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
-            createProfileButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15)
+            createProfileButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            createProfileButton.bottomAnchor.constraint(greaterThanOrEqualTo: scrollView.bottomAnchor, constant: -77)
         ])
     }
 }
@@ -127,4 +144,38 @@ extension SetupProfileViewController: UINavigationControllerDelegate, UIImagePic
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
         profileImageView.circleImageView.image = image
     }
+}
+
+//MARK: - Moving content when keyboard appears
+
+extension SetupProfileViewController {
+        
+    private func registerForKeyboardNotifications() {
+        
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    private func removeKeyboardNotifications() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    @objc func adjustForKeyboard(notification: Notification) {
+        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+
+        let keyboardScreenEndFrame = keyboardValue.cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+
+        if notification.name == UIResponder.keyboardWillHideNotification {
+            scrollView.contentInset = .zero
+        } else {
+            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+        }
+
+        scrollView.scrollIndicatorInsets = scrollView.contentInset
+
+    }
+    
 }

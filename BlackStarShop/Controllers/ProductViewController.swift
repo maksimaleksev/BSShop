@@ -108,13 +108,12 @@ class ProductViewController: UIViewController {
         setupNavigationBar()
     }
     
+   
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         fitSizeOfContent()
-        let cartCount = RealmDataService.shared.loadObjects().count
-        if cartCount > 0 {
-            navigationItem.rightBarButtonItem?.setBadge(text: String(cartCount))
-        }
+        showNavigationBarBage()
     }
     
     @objc private func addToCartButtonPressed() {
@@ -179,6 +178,13 @@ extension ProductViewController {
         self.navigationController?.navigationBar.layer.shadowOpacity = 1.0
         self.navigationController?.navigationBar.layer.masksToBounds = false
     }
+    
+    private func showNavigationBarBage() {
+           let cartCount = RealmDataService.shared.loadObjects().count
+           if cartCount > 0 {
+               navigationItem.rightBarButtonItem?.setBadge(text: String(cartCount))
+           }
+       }
     
     @objc private func back(sender: UIBarButtonItem) {
         _ = navigationController?.popViewController(animated: true)
@@ -346,6 +352,8 @@ extension ProductViewController {
         ])
     }
 }
+
+
 
 //MARK: - ScrolViewDelegate
 
