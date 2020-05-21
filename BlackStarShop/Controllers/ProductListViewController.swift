@@ -38,6 +38,7 @@ class ProductListViewController: UIViewController {
         let activiityIndicator = UIActivityIndicatorView()
         activiityIndicator.hidesWhenStopped = true
         activiityIndicator.style = .medium
+        activiityIndicator.translatesAutoresizingMaskIntoConstraints = false
         return activiityIndicator
     }()
     
@@ -152,7 +153,10 @@ extension ProductListViewController {
     private func setupConstraints() {
         self.view.addSubview(activiityIndicator)
         self.view.addSubview(collectionView)
-        activiityIndicator.center = self.view.center
+        activiityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        let margins = view.layoutMarginsGuide
+        activiityIndicator.centerYAnchor.constraint(equalTo: margins.centerYAnchor).isActive = true
+        activiityIndicator.centerXAnchor.constraint(equalTo: margins.centerXAnchor).isActive = true
         collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true

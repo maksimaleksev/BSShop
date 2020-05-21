@@ -93,8 +93,7 @@ class ChangeProfileViewController: UIViewController {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true)
     }
-    
-    
+
 }
 
 extension ChangeProfileViewController {
@@ -151,19 +150,19 @@ extension ChangeProfileViewController: UINavigationControllerDelegate, UIImagePi
 //MARK: - Moving content when keyboard appears
 
 extension ChangeProfileViewController {
-        
+
     private func registerForKeyboardNotifications() {
-        
+
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
-    
+
     private func removeKeyboardNotifications() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-    
+
     @objc func adjustForKeyboard(notification: Notification) {
         guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
 
@@ -179,5 +178,5 @@ extension ChangeProfileViewController {
         scrollView.scrollIndicatorInsets = scrollView.contentInset
 
     }
-    
+
 }

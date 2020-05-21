@@ -9,6 +9,7 @@
 import UIKit
 import SwiftUI
 import SDWebImage
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
     
@@ -41,7 +42,6 @@ class ProfileViewController: UIViewController {
         setupConstraints()
         setUpValuesForUIElements()
         
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -64,8 +64,10 @@ class ProfileViewController: UIViewController {
     
     private func setNavigationBarItems() {
         navigationItem.title = "Ваш профиль"
-        let rightBarButtonItem = UIBarButtonItem(title: "Изменить", style: .done, target: self, action: #selector(changeProfile))
-        navigationItem.rightBarButtonItem = rightBarButtonItem
+        let leftBarButtonItem = UIBarButtonItem(title: "Изменить", style: .done, target: self, action: #selector(changeProfile))
+        let rightBarButonItem = UIBarButtonItem(title: "Выйти", style: .done, target: self, action: #selector(signOut))
+        navigationItem.leftBarButtonItem = leftBarButtonItem
+        navigationItem.rightBarButtonItem = rightBarButonItem
     }
     
     @objc private func changeProfile() {
@@ -73,6 +75,20 @@ class ProfileViewController: UIViewController {
         self.present(changeVC, animated: true)
     }
     
+      @objc private func signOut() {
+            let ac = UIAlertController(title: nil, message: "Вы уверены, что хотите выйти?", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+            ac.addAction(UIAlertAction(title: "Выйти", style: .destructive, handler: { (_) in
+                do {
+                    try Auth.auth().signOut()
+                    UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController = AuthViewController()
+                    RealmDataService.shared.delAllObjects()
+                } catch {
+                    print ("Error signing out: \(error.localizedDescription)")
+                }
+            }))
+            present(ac, animated: true)
+        }
 }
 
 //MARK: - Setup Constraints

@@ -223,6 +223,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CartCell.reuseId) as! CartCell
+        cell.selectionStyle = .none
         let cellData = cartProducts[indexPath.row]
         cell.setCellData(data: cellData)
         cell.delegate = self

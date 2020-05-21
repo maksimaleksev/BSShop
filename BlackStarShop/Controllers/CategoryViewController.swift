@@ -24,6 +24,7 @@ class CategoryViewController: UIViewController {
         let activiityIndicator = UIActivityIndicatorView()
         activiityIndicator.hidesWhenStopped = true
         activiityIndicator.style = .medium
+        activiityIndicator.translatesAutoresizingMaskIntoConstraints = false
         return activiityIndicator
     }()
     
@@ -156,7 +157,9 @@ extension CategoryViewController {
     private func setupConstraints() {
         self.view.addSubview(tableView)
         self.view.addSubview(activiityIndicator)
-        activiityIndicator.center = self.view.center
+        let margins = view.layoutMarginsGuide
+        activiityIndicator.centerYAnchor.constraint(equalTo: margins.centerYAnchor).isActive = true
+        activiityIndicator.centerXAnchor.constraint(equalTo: margins.centerXAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
