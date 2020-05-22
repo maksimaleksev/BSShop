@@ -82,16 +82,6 @@ extension SizesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let currentCell = tableView.cellForRow(at: indexPath) as! SizesCell
-        
-//        let productName = shoppingProduct.name
-//        guard let price = shoppingProduct.priceUnwarped,
-//            let productSize = currentCell.sizeLabel.text,
-//            let productColor = shoppingProduct.colorName,
-//            let productImage = shoppingProduct.mainImage
-//            else { return }
-//
-//        let objectToSave = CartModel(productName: productName, price: price, productSize: productSize, productColor: productColor, productImage:productImage )
-//        RealmDataService.shared.saveObject(object: objectToSave)
         guard let productSize = currentCell.sizeLabel.text else { return }
         delegate?.cellSizeDataSet(to: productSize)
         self.dismiss(animated: true)
