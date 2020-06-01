@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B0C52AE2484E997008F7984 /* ScrollWhenKeyboardAppears.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0C52AD2484E997008F7984 /* ScrollWhenKeyboardAppears.swift */; };
 		7B1F2558244A24C90083C060 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1F2557244A24C90083C060 /* FormTextField.swift */; };
 		7B1F255D244A32660083C060 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B1F255C244A32660083C060 /* UIStackView+Extension.swift */; };
 		7B3068DE245C5353001522F9 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B3068DD245C5353001522F9 /* ProductViewController.swift */; };
@@ -42,6 +43,7 @@
 		7B6E43E024475A8600153912 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E43DF24475A8600153912 /* UIFont+Extension.swift */; };
 		7B6E43E224475D1400153912 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6E43E124475D1400153912 /* UIButton+Extension.swift */; };
 		7B78B6C8246E8ADE00020F11 /* ImagePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B78B6C7246E8ADE00020F11 /* ImagePageControl.swift */; };
+		7B7A36892484EFD900725D50 /* KeyboardAdjusting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B7A36882484EFD900725D50 /* KeyboardAdjusting.swift */; };
 		7BA9BA1C246846B4004F3F2B /* ChangeProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA9BA1B246846B4004F3F2B /* ChangeProfileViewController.swift */; };
 		7BB4EF012457510800698FE2 /* AkzidenzGroteskPro-BoldCn.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7BB4EF00245750DD00698FE2 /* AkzidenzGroteskPro-BoldCn.ttf */; };
 		7BB882942450A5AC0085AB39 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB8828E2450A5AC0085AB39 /* CategoryViewController.swift */; };
@@ -82,6 +84,7 @@
 		02270711790106FA20E4C8CF /* Pods_BlackStarShop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlackStarShop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D62DB0CA6400E8CD9201D9 /* Pods-BlackStarShop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackStarShop.release.xcconfig"; path = "Target Support Files/Pods-BlackStarShop/Pods-BlackStarShop.release.xcconfig"; sourceTree = "<group>"; };
 		723995D509B43D15B4ACAF8C /* Pods-BlackStarShop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlackStarShop.debug.xcconfig"; path = "Target Support Files/Pods-BlackStarShop/Pods-BlackStarShop.debug.xcconfig"; sourceTree = "<group>"; };
+		7B0C52AD2484E997008F7984 /* ScrollWhenKeyboardAppears.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollWhenKeyboardAppears.swift; sourceTree = "<group>"; };
 		7B1F2557244A24C90083C060 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
 		7B1F255C244A32660083C060 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 		7B3068DD245C5353001522F9 /* ProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 		7B6E43DF24475A8600153912 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		7B6E43E124475D1400153912 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		7B78B6C7246E8ADE00020F11 /* ImagePageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePageControl.swift; sourceTree = "<group>"; };
+		7B7A36882484EFD900725D50 /* KeyboardAdjusting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardAdjusting.swift; sourceTree = "<group>"; };
 		7BA9BA1B246846B4004F3F2B /* ChangeProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeProfileViewController.swift; sourceTree = "<group>"; };
 		7BB4EF00245750DD00698FE2 /* AkzidenzGroteskPro-BoldCn.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AkzidenzGroteskPro-BoldCn.ttf"; sourceTree = "<group>"; };
 		7BB8828E2450A5AC0085AB39 /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
@@ -226,6 +230,8 @@
 				7B403F45246DB1DA009D96BC /* ProductCollectionViewCellDelegate.swift */,
 				7BC4A40D24706875002279D7 /* CartCellDelegate.swift */,
 				7BFEE65124726CB00027DE79 /* SizesViewControllerDelegate.swift */,
+				7B0C52AD2484E997008F7984 /* ScrollWhenKeyboardAppears.swift */,
+				7B7A36882484EFD900725D50 /* KeyboardAdjusting.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -539,6 +545,7 @@
 				7BDF49FD24642DA00035C141 /* TransitionDriver.swift in Sources */,
 				7BC6D7752466D2C40046B472 /* FireStoreService.swift in Sources */,
 				7BC4A40E24706875002279D7 /* CartCellDelegate.swift in Sources */,
+				7B0C52AE2484E997008F7984 /* ScrollWhenKeyboardAppears.swift in Sources */,
 				7BB882952450A5AC0085AB39 /* SignUpViewController.swift in Sources */,
 				7B64171B24585B6B00B39570 /* MainTabBarController.swift in Sources */,
 				7BDF49E924642CF70035C141 /* CGPoint+Velocity.swift in Sources */,
@@ -569,6 +576,7 @@
 				7BF0664E24530A790059A1D1 /* ProductListViewController.swift in Sources */,
 				7B5F705124658B2A00612738 /* UserError.swift in Sources */,
 				7BC6D77B2466E4D10046B472 /* UIImage+Extension.swift in Sources */,
+				7B7A36892484EFD900725D50 /* KeyboardAdjusting.swift in Sources */,
 				7B6E43E024475A8600153912 /* UIFont+Extension.swift in Sources */,
 				7BDF49F124642D440035C141 /* InstantPanGestureRecognizer.swift in Sources */,
 				7B641762246A978500B39570 /* NetworkService.swift in Sources */,

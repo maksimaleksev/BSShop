@@ -13,7 +13,7 @@ import SDWebImage
 
 class SetupProfileViewController: UIViewController {
     
-    private let scrollView: UIScrollView = {
+    internal let scrollView: UIScrollView = {
        let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
@@ -148,34 +148,10 @@ extension SetupProfileViewController: UINavigationControllerDelegate, UIImagePic
 
 //MARK: - Moving content when keyboard appears
 
-extension SetupProfileViewController {
-        
-    private func registerForKeyboardNotifications() {
-        
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-    }
-    
-    private func removeKeyboardNotifications() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
+extension SetupProfileViewController: ScrollWhenKeyboardAppears, KeyboardAdjusting {
+
     @objc func adjustForKeyboard(notification: Notification) {
-        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
-
-        let keyboardScreenEndFrame = keyboardValue.cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
-
-        if notification.name == UIResponder.keyboardWillHideNotification {
-            scrollView.contentInset = .zero
-        } else {
-            scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
-        }
-
-        scrollView.scrollIndicatorInsets = scrollView.contentInset
-
+        setScrollSizeWhenKeyboardAppears(notification: notification)
     }
     
 }
